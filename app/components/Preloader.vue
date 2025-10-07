@@ -2,30 +2,71 @@
   <div
     v-if="showPreloader"
     ref="container"
-    class="fixed inset-0 flex items-center justify-center bg-gray-900 z-50"
+    class="fixed inset-0 flex items-center justify-center bg-[#0a0a0a] border-black border-[30px] z-50"
   >
-    <div ref="mainBar" class="w-4/5 h-1.5 bg-gray-700 overflow-hidden">
-      <div ref="bar" class="h-1.5 bg-white w-0"></div>
+    <!-- Progress Bar -->
+    <div
+      ref="mainBar"
+      class="w-4/5 h-1.5 bg-gray-700 overflow-hidden z-20 relative"
+    >
+      <div ref="bar" class="h-1.5 bg-orange-500 w-0"></div>
     </div>
-    <div ref="name" class="overflow-hidden pb-1 lg:pb-2 h-auto absolute">
-      <h1 class="text-2xl md:text-4xl lg:text-6xl text-nowrap font-bold">
-        Hello There 😁👋
-      </h1>
+    <div
+      ref="preloader"
+      class="preloader rounded-md flex flex-col items-center justify-center overflow-hidden"
+    >
+      <!-- Loading Text -->
+      <div ref="name" class="overflow-hidden py-2 h-auto absolute z-30">
+        <h1
+          class="loading-text text-2xl md:text-4xl whitespace-nowrap font-bold"
+        >
+          Hello There 👋
+        </h1>
+      </div>
+
+      <!-- CRT Overlay -->
+      <div class="crt-bg absolute inset-0 pointer-events-none z-10"></div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
 import gsap from "gsap";
+import "../../assets/css/fonts.css";
 
 defineProps({
-  showPreloader: Boolean,
+  showPreloader: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const container = ref(null);
 const mainBar = ref(null);
 const bar = ref(null);
 const name = ref(null);
+
+const preloader = ref(null);
+
+onMounted(() => {
+  // Flicker effect
+  gsap.to(".loading-text", {
+    opacity: 0.9,
+    repeat: -1,
+    yoyo: true,
+    duration: 0.01,
+    ease: "steps(2)",
+  });
+
+  // Fake scanline sweep
+  gsap.to(".crt-bg", {
+    backgroundPosition: "0 100%",
+    duration: 2,
+    repeat: -1,
+    ease: "none",
+  });
+});
 
 onMounted(() => {
   const tl = gsap.timeline();
@@ -55,7 +96,7 @@ onMounted(() => {
       duration: 0.2,
       ease: "linear",
     },
-    "+=1"
+    "+=0.3"
   );
 
   tl.fromTo(
@@ -73,3 +114,32 @@ onMounted(() => {
   tl.to(container.value, { opacity: 0, duration: 0.5, ease: "linear" }, "+=1");
 });
 </script>
+
+<style scoped>
+.preloader {
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.loading-text {
+  color: #ff7300;
+  text-shadow: 0 0 3px #ff7300, 0 0 5px #ff7300;
+  font-family: "RetroByte", sans-serif;
+}
+
+.crt-bg {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.15) 0px,
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  background-size: 100% 4px;
+  opacity: 0.3;
+}
+</style>

@@ -4,7 +4,7 @@
   >
     <div class="pb-1 overflow-hidden">
       <h1
-        class="text-2xl md:text-4xl font-bold transition-all duration-500 ease-out"
+        class="text-2xl md:text-4xl font-bold transition-all duration-500 ease-out text-orange-500"
         :class="{ 'translate-y-full': !mounted, '': mounted }"
       >
         Onisodumeya

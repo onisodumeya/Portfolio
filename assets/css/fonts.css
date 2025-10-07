@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "HostGrotesk";
+  src: url("../fonts/HostGrotesk-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RetroByte";
+  src: url("../fonts/Game Paused DEMO.otf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+body {
+  font-family: "RetroByte", sans-serif;
+}

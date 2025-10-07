@@ -54,7 +54,7 @@ onMounted(() => {
       setTimeout(() => {
         mounted.value = true;
       }, 500);
-    }, 7000);
+    }, 7500);
   }
 });
 
