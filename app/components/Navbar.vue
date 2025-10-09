@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex flex-row items-center justify-between py-2.5 md:py-5 px-5 md:px-10"
+    class="fixed top-0 flex flex-row w-full items-center justify-between py-2.5 md:py-5 px-5 md:px-10"
   >
     <div class="pb-1 overflow-hidden">
       <NuxtLink
@@ -18,7 +18,7 @@
     <div class="overflow-hidden">
       <button
         @click="emit('toggleMenu')"
-        class="relative group w-12 md:w-16 h-12 md:h-16 z-20 flex items-center justify-center rounded-full transition-all duration-700 ease-in-out"
+        class="relative group w-12 md:w-16 h-12 md:h-16 z-20 flex items-center justify-center rounded-full transition-all duration-500 ease-in-out"
         :class="{
           'translate-y-full opacity-0': !transitionStore.mounted,
           'translate-y-0 opacity-100': transitionStore.mounted,

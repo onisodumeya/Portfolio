@@ -1,9 +1,9 @@
 <template>
   <Preloader v-if="showPreloader" :showPreloader="showPreloader" />
   <div v-else-if="showContent" class="flex-grow">
-    <Navbar @toggleMenu="toggleMenu" :isMenuOpen="isMenuOpen" />
+    <Navbar @toggleMenu="toggleMenu" :isMenuOpen="isMenuOpen" class="z-50" />
     <NavMenu :isMenuOpen="isMenuOpen" @closeMenu="isMenuOpen = false" />
-    <main class="flex-grow">
+    <main class="flex-grow z-0">
       <slot />
     </main>
     <Footer />

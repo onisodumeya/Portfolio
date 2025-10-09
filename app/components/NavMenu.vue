@@ -1,7 +1,7 @@
 <template>
   <div
     @click.stop="closeMenu"
-    class="absolute z-10 h-screen top-0 w-full bg-black-0 backdrop-blur-lg place-items-end transition-all duration-500 ease-in-out"
+    class="absolute z-10 h-screen top-0 w-full bg-black/0 backdrop-blur-2xl place-items-end transition-all duration-500 ease-in-out"
     :class="{
       'right-0': isMenuOpen,
       '-right-full': !isMenuOpen,
@@ -9,7 +9,7 @@
   >
     <div
       @click.stop
-      class="h-full w-full md:w-2/5 flex items-center justify-center bg-black/80 backdrop-blur-md transition-all duration-500 ease-in-out"
+      class="h-full w-full md:w-2/5 flex items-center justify-center bg-black/90 backdrop-blur-3xl transition-all duration-500 ease-in-out"
     >
       <div class="flex flex-col gap-10">
         <div class="relative overflow-hidden w-fit">
