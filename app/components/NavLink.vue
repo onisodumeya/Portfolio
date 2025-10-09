@@ -5,7 +5,10 @@ defineProps<{ to: string; label: string }>();
 
 <template>
   <NuxtLink
-    exact-active-class="text-orange-200"
+    :class="[
+      'group relative overflow-hidden h-fit',
+      $route.path === to ? 'text-orange-200' : 'text-white',
+    ]"
     :to="to"
     class="group relative overflow-hidden h-fit"
   >

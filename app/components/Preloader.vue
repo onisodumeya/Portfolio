@@ -2,7 +2,7 @@
   <div
     v-if="showPreloader"
     ref="container"
-    class="fixed inset-0 flex items-center justify-center bg-[#0a0a0a] border-black border-[30px] z-50"
+    class="fixed inset-0 flex items-center justify-center bg-gray-100 border-black border-[30px] z-50"
   >
     <!-- Progress Bar -->
     <div
@@ -91,7 +91,7 @@ onMounted(() => {
     name.value,
     { height: 0 },
     {
-      borderRight: "2px solid #ffffff",
+      borderRight: "2px solid #121212",
       height: "auto",
       duration: 0.2,
       ease: "linear",
@@ -111,7 +111,11 @@ onMounted(() => {
     "+=0.5"
   );
 
-  tl.to(container.value, { opacity: 0, duration: 0.5, ease: "linear" }, "+=1");
+  tl.to(
+    container.value,
+    { opacity: 0, duration: 0.5, ease: "linear" },
+    "+=1.5"
+  );
 });
 </script>
 
@@ -126,16 +130,14 @@ onMounted(() => {
 }
 
 .loading-text {
-  color: #ff7300;
-  text-shadow: 0 0 3px #ff7300, 0 0 5px #ff7300;
   font-family: "RetroByte", sans-serif;
 }
 
 .crt-bg {
   background: repeating-linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.15) 0px,
-    rgba(255, 255, 255, 0.05) 2px,
+    rgba(0, 0, 0, 0.25) 0px,
+    rgba(0, 0, 0, 0.15) 2px,
     transparent 2px,
     transparent 4px
   );

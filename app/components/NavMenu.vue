@@ -9,7 +9,7 @@
   >
     <div
       @click.stop
-      class="h-full w-full md:w-2/5 flex items-center justify-center bg-black/50 backdrop-blur-md transition-all duration-500 ease-in-out"
+      class="h-full w-full md:w-2/5 flex items-center justify-center bg-black/80 backdrop-blur-md transition-all duration-500 ease-in-out"
     >
       <div class="flex flex-col gap-10">
         <div class="relative overflow-hidden w-fit">
