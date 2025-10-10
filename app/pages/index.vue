@@ -7,7 +7,7 @@
     >
       <div class="place-items-center overflow-hidden">
         <p
-          class="tracking-[0.5em] text-gray-400 overflow-hidden text-center text-xs md:text-base transition-all duration-500 ease-out"
+          class="tracking-[0.5em] text-gray-500 overflow-hidden text-center text-xs md:text-base transition-all duration-500 ease-out"
           :class="{
             'translate-y-[110%]': !transitionStore.mounted,
             '': transitionStore.mounted,
@@ -19,7 +19,7 @@
       <div class="flex flex-col gap-1">
         <div class="place-items-center overflow-hidden">
           <h1
-            class="md:w-4/5 lg:w-full text-center text-gray-500 text-4xl md:text-4xl lg:text-7xl overflow-hidden transition-all duration-500 ease-out"
+            class="md:w-4/5 lg:w-full text-center text-black text-4xl md:text-4xl lg:text-7xl overflow-hidden transition-all duration-500 ease-out"
             :class="{
               'translate-y-[110%]': !transitionStore.mounted,
               '': transitionStore.mounted,
@@ -28,11 +28,13 @@
             Hi, I'm
             <span
               style="
-                background-color: #ea580c;
+                background-color: #777777;
                 background-clip: text;
                 -webkit-background-clip: text;
+                overflow: hidden;
                 color: transparent;
-                text-shadow: 4px 6px 1px rgba(229, 231, 235, 0.5);
+                text-shadow: 3px 5px 1px rgba(229, 231, 235, 0.5);
+                /* -webkit-text-stroke: 1px #444444; */
               "
               >Onisodumeya</span
             >
@@ -40,7 +42,7 @@
         </div>
         <div class="place-items-center overflow-hidden">
           <h1
-            class="md:w-4/5 lg:w-full text-center text-gray-500 text-4xl md:text-4xl lg:text-7xl overflow-hidden transition-all duration-500 ease-out"
+            class="md:w-4/5 lg:w-full text-center text-[#1b1b1b] text-4xl md:text-4xl lg:text-7xl overflow-hidden transition-all duration-500 ease-out"
             :class="{
               'translate-y-[110%]': !transitionStore.mounted,
               '': transitionStore.mounted,
@@ -51,14 +53,15 @@
         </div>
       </div>
       <div class="flex flex-col md:flex-row pt-2 pr-2 overflow-hidden">
-        <PriBtn
-          text="Let's chat"
-          class="transition-all duration-500 ease-out"
+        <div
+          class="transition-all duration-500 ease-out w-auto h-auto"
           :class="{
             'translate-y-[110%]': !transitionStore.mounted,
             '': transitionStore.mounted,
           }"
-        />
+        >
+          <PriBtn text="Let's chat" />
+        </div>
       </div>
     </div>
   </section>
