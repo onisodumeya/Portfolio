@@ -2,7 +2,7 @@
   <div
     v-if="showPreloader"
     ref="container"
-    class="fixed inset-0 flex items-center justify-center bg-gray-100 border-black border-[30px] z-50"
+    class="fixed inset-0 flex items-center justify-center bg-gray-100 z-50"
   >
     <!-- Progress Bar -->
     <div
@@ -16,7 +16,11 @@
       class="preloader rounded-md flex flex-col items-center justify-center overflow-hidden"
     >
       <!-- Loading Text -->
-      <div ref="name" class="overflow-hidden py-2 h-auto absolute z-30">
+      <div
+        ref="name"
+        class="overflow-hidden py-2 h-auto absolute z-30"
+        :class="{ hidden: short }"
+      >
         <h1
           class="loading-text text-2xl md:text-4xl whitespace-nowrap font-bold"
         >
@@ -35,8 +39,12 @@ import { ref, onMounted } from "vue";
 import gsap from "gsap";
 import "../../assets/css/fonts.css";
 
-defineProps({
+const props = defineProps({
   showPreloader: {
+    type: Boolean,
+    default: false,
+  },
+  short: {
     type: Boolean,
     default: false,
   },
@@ -71,51 +79,77 @@ onMounted(() => {
 onMounted(() => {
   const tl = gsap.timeline();
 
-  tl.fromTo(
-    bar.value,
-    { width: "0%" },
-    { width: "100%", duration: 3, ease: "linear" }
-  );
+  if (props.short) {
+    // 🔹 Short version for route changes
+    tl.fromTo(
+      bar.value,
+      { width: "0%" },
+      { width: "100%", duration: 1.5, ease: "linear" }
+    );
 
-  tl.to(
-    mainBar.value,
-    {
-      width: "0%",
-      duration: 0.5,
-      ease: "linear",
-    },
-    "+=0.2s"
-  );
+    tl.to(
+      mainBar.value,
+      {
+        width: "0%",
+        duration: 0.5,
+        ease: "linear",
+      },
+      "+=0.2"
+    );
 
-  tl.fromTo(
-    name.value,
-    { height: 0 },
-    {
-      borderRight: "2px solid #121212",
-      height: "auto",
-      duration: 0.2,
-      ease: "linear",
-    },
-    "+=0.3"
-  );
+    tl.to(
+      container.value,
+      { opacity: 0, duration: 0.3, ease: "linear" },
+      "+=0.2"
+    );
+  } else {
+    // 🔸 Full version for first load
+    tl.fromTo(
+      bar.value,
+      { width: "0%" },
+      { width: "100%", duration: 3, ease: "linear" }
+    );
 
-  tl.fromTo(
-    name.value,
-    { width: 0 },
-    {
-      paddingRight: "5px",
-      width: "auto",
-      duration: 0.5,
-      ease: "linear",
-    },
-    "+=0.5"
-  );
+    tl.to(
+      mainBar.value,
+      {
+        width: "0%",
+        duration: 0.5,
+        ease: "linear",
+      },
+      "+=0.2"
+    );
 
-  tl.to(
-    container.value,
-    { opacity: 0, duration: 0.5, ease: "linear" },
-    "+=1.5"
-  );
+    tl.fromTo(
+      name.value,
+      { height: 0 },
+      {
+        borderRight: "2px solid #121212",
+        height: "auto",
+        duration: 0.2,
+        ease: "linear",
+      },
+      "+=0.3"
+    );
+
+    tl.fromTo(
+      name.value,
+      { width: 0 },
+      {
+        paddingRight: "5px",
+        width: "auto",
+        duration: 0.5,
+        ease: "linear",
+      },
+      "+=0.5"
+    );
+
+    tl.to(
+      container.value,
+      { opacity: 0, duration: 0.5, ease: "linear" },
+      "+=1.5"
+    );
+  }
 });
 </script>
 

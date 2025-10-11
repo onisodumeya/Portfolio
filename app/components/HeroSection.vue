@@ -1,12 +1,13 @@
 <template>
   <section
-    class="min-h-screen flex flex-col items-center pt-20 md:pt-28 px-5 relative"
+    class="h-auto flex flex-col items-center pt-20 md:pt-28 px-5 relative"
   >
     <div
-      class="rounded-3xl w-4/5 py-14 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
+      class="rounded-3xl md:w-4/5 py-14 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
     >
       <div class="place-items-center overflow-hidden">
         <p
+          ref="third"
           class="tracking-[0.5em] text-gray-500 overflow-hidden text-center text-xs md:text-base transition-all duration-500 ease-out"
           :class="{
             'translate-y-[110%]': !transitionStore.mounted,
@@ -19,7 +20,8 @@
       <div class="flex flex-col gap-1">
         <div class="place-items-center overflow-hidden">
           <h1
-            class=":w-full text-center text-[#1b1b1b] text-4xl md:text-5xl lg:text-7xl overflow-hidden transition-all duration-500 ease-out"
+            ref="first"
+            class=":w-full text-center text-4xl md:text-5xl lg:text-7xl overflow-hidden transition-all duration-500 ease-out"
             :class="{
               'translate-y-[110%]': !transitionStore.mounted,
               '': transitionStore.mounted,
@@ -41,7 +43,8 @@
         </div>
         <div class="place-items-center overflow-hidden">
           <h1
-            class="w-full text-center text-[#1b1b1b] text-4xl md:text-5xl lg:text-7xl overflow-hidden transition-all duration-500 ease-out"
+            ref="second"
+            class="w-full text-center text-4xl md:text-5xl lg:text-7xl overflow-hidden transition-all duration-500 ease-out"
             :class="{
               'translate-y-[110%]': !transitionStore.mounted,
               '': transitionStore.mounted,
@@ -65,6 +68,7 @@
       </div>
       <div class="flex flex-col md:flex-row pt-2 pr-2 overflow-hidden">
         <div
+          ref="btn"
           class="transition-all duration-500 ease-out w-auto h-auto"
           :class="{
             'translate-y-[110%]': !transitionStore.mounted,
@@ -80,24 +84,86 @@
 
 <script setup lang="ts">
 import { usePageTransitionStore } from "~/stores/pageTransition";
-import { watch, onMounted } from "vue";
+import { watch, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-import noise from "../assets/images/noise.png";
+// import noise from "../assets/images/noise.png";
+import gsap from "gsap";
+import { ScrollTrigger, SplitText } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const transitionStore = usePageTransitionStore();
 const route = useRoute();
+const changedRoute = ref(false);
+
+const first = ref(null);
+const second = ref(null);
+const third = ref(null);
+const btn = ref(null);
 
 onMounted(() => {
-  transitionStore.triggerTransition();
+  // transitionStore.triggerTransition();
+  gsap.fromTo(
+    first.value,
+    {
+      y: 100,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      ease: "power2.out",
+      delay: 0.8,
+    }
+  );
+  gsap.fromTo(
+    second.value,
+    {
+      y: 100,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      ease: "power2.out",
+      delay: 0.8,
+    }
+  );
+  gsap.fromTo(
+    third.value,
+    {
+      y: 100,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      ease: "power2.out",
+      delay: 0.8,
+    }
+  );
+  gsap.fromTo(
+    btn.value,
+    {
+      y: 100,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      ease: "power2.out",
+      delay: 0.8,
+    }
+  );
 });
 
-watch(
-  () => route.fullPath,
-  () => {
-    console.log("Route changed! Triggering transition...");
-    transitionStore.triggerTransition();
-  }
-);
+// watch(
+//   () => route.fullPath,
+//   () => {
+//     changedRoute.value = true;
+//     transitionStore.triggerTransition();
+//   }
+// );
 
 const props = defineProps({
   mounted: Boolean,

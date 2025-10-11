@@ -1,33 +1,41 @@
 <template>
-  <section class="flex flex-col md:flex-row justify-between px-5">
-    <div ref="title" class="w-2/5">
-      <h2 class="text-3xl text-nowrap">Nice to meet you!</h2>
-    </div>
-    <div class="flex flex-col gap-3 items-end text-[#555555]">
+  <section
+    ref="section"
+    class="relative flex flex-col gap-3 justify-between py-5 md:py-10 pt-4 md:pt-20"
+  >
+    <h2
+      ref="title"
+      class="text-4xl md:text-9xl stroke-black text-nowrap text-transparent justify-self-start"
+      style="-webkit-text-stroke: 1px #1b1b1b"
+    >
+      Nice to meet you!
+    </h2>
+    <div class="flex flex-col gap-5 items-center">
       <p
         ref="whoIAm"
-        class="w-3/5 border border-b-[#777777] border-dashed leading-loose pb-2"
+        class="w-full border-2 border-b-[#777777] border-dashed leading-loose pb-5"
       >
         Hey there! I’m Onisodumeya Mazi, a Nigerian frontend developer based in
-        Port Harcourt where I build web experiences that feel alive — smooth
+        Port Harcourt where I build web experiences that feel alive with smooth
         animations, thoughtful layouts, and just enough magic to make users
         smile.
       </p>
-      <div
-        class="flex gap-5 w-3/5 justify-between border border-b-[#777777] border-dashed pb-2"
-      >
-        <h3 ref="whatIDo" class="text-lg text-[#1b1b1b]">What I do?</h3>
-        <div class="flex flex-col gap-4 w-4/5">
-          <p ref="web" class="w-full leading-loose">
-            <i class="text-[#1b1b1b]">Frontend Web Development</i> - I bring
-            designs to life with clean, efficient, and responsive code, blending
-            performance with personality. From smooth transitions to seamless
-            interactivity, I build interfaces that don’t just work but feel
-            right.
+      <div class="flex items-start gap-5 w-full justify-between">
+        <h3 ref="whatIDo" class="text-base text-nowrap">What I do?</h3>
+        <div class="flex flex-col gap-4 w-full md:w-4/5 text-sm md:text-base">
+          <p
+            ref="web"
+            class="w-full leading-loose border-2 border-b-[#777777] border-dashed pb-5"
+          >
+            <span class="text-orange-500">Frontend Web Development</span> - I
+            bring designs to life with clean, efficient, and responsive code,
+            blending performance with personality. From smooth transitions to
+            seamless interactivity, I build interfaces that don’t just work but
+            feel right.
           </p>
           <p ref="ui" class="w-full leading-loose">
-            <i class="text-[#1b1b1b]">UI Design</i> - I design interfaces that
-            speak clearly and look great — balancing minimal aesthetics with
+            <span class="text-orange-500">UI Design</span> - I design interfaces
+            that speak clearly and look great, balancing minimal aesthetics with
             meaningful user flow. Every pixel, color, and motion has a purpose:
             to make users enjoy the experience as much as they understand it.
           </p>
@@ -39,11 +47,12 @@
 
 <script setup>
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger, SplitText } from "gsap/all";
 import { onMounted, ref } from "vue";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
+const section = ref(null);
 const title = ref(null);
 const whoIAm = ref(null);
 const whatIDo = ref(null);
@@ -51,6 +60,21 @@ const web = ref(null);
 const ui = ref(null);
 
 onMounted(() => {
+  const split = new SplitText(title.value, { type: "words,chars" });
+  const chars = split.chars;
+
+  gsap.from(chars, {
+    y: 30,
+    opacity: 0,
+    ease: "power2.out",
+    duration: 0.6,
+    stagger: 0.07,
+    scrollTrigger: {
+      trigger: title.value,
+      start: "top 80%",
+      toggleActions: "play none none reverse",
+    },
+  });
   gsap.fromTo(
     title.value,
     {
@@ -61,11 +85,11 @@ onMounted(() => {
       y: 0,
       opacity: 1,
       delay: 0.3,
-      ease: "power2.out",
+      ease: "",
       duration: 1,
       scrollTrigger: {
         trigger: title.value,
-        start: "top 90%",
+        start: "top 100%",
         toggleActions: "play none none reverse",
       },
     }
@@ -84,7 +108,7 @@ onMounted(() => {
       duration: 1,
       scrollTrigger: {
         trigger: whoIAm.value,
-        start: "top 90%",
+        start: "top 100%",
         toggleActions: "play none none reverse",
       },
     }
@@ -103,7 +127,7 @@ onMounted(() => {
       duration: 1,
       scrollTrigger: {
         trigger: whatIDo.value,
-        start: "top 90%",
+        start: "top 100%",
         toggleActions: "play none none reverse",
       },
     }
@@ -122,7 +146,7 @@ onMounted(() => {
       duration: 1,
       scrollTrigger: {
         trigger: web.value,
-        start: "top 90%",
+        start: "top 100%",
         toggleActions: "play none none reverse",
       },
     }
@@ -141,7 +165,7 @@ onMounted(() => {
       duration: 1,
       scrollTrigger: {
         trigger: ui.value,
-        start: "top 90%",
+        start: "top 100%",
         toggleActions: "play none none reverse",
       },
     }

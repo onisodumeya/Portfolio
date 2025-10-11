@@ -1,6 +1,7 @@
 <template>
   <nav
-    class="fixed top-0 flex flex-row w-full items-center justify-between py-2.5 md:py-5 px-5 md:px-10"
+    class="fixed top-0 flex flex-row w-full items-center justify-between py-2.5 md:py-5 px-5 md:px-10 bg-white/0 backdrop-blur-md"
+    :class="{ 'backdrop-blur-none': isMenuOpen }"
   >
     <div class="pb-1 overflow-hidden">
       <NuxtLink
@@ -67,8 +68,7 @@ onMounted(() => {
 watch(
   () => route.fullPath,
   () => {
-    console.log("Route changed! Triggering transition...");
-    transitionStore.triggerTransition(); // trigger your animation logic
+    transitionStore.triggerTransition();
   }
 );
 

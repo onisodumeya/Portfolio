@@ -1,7 +1,7 @@
 <template>
   <div
     @click.stop="closeMenu"
-    class="absolute z-10 h-screen top-0 w-full bg-black/0 backdrop-blur-2xl place-items-end transition-all duration-500 ease-in-out"
+    class="fixed z-10 h-screen top-0 w-full bg-black/0 backdrop-blur-2xl place-items-end transition-all duration-500 ease-in-out"
     :class="{
       'right-0': isMenuOpen,
       '-right-full': !isMenuOpen,
@@ -85,10 +85,12 @@ watch(
   () => props.isMenuOpen,
   (newVal) => {
     if (newVal) {
+      document.body.style.overflowY = "hidden";
       setTimeout(() => {
         showMenuLinks.value = true;
       }, 500);
     } else {
+      document.body.style.overflowY = "scroll";
       setTimeout(() => {
         showMenuLinks.value = false;
       }, 500);
