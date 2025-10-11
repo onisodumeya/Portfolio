@@ -1,7 +1,12 @@
 <template>
   <Preloader v-if="showPreloader" :showPreloader="showPreloader" />
-  <div v-else-if="showContent" class="flex-grow">
-    <Navbar @toggleMenu="toggleMenu" :isMenuOpen="isMenuOpen" class="z-50" />
+  <div v-else-if="showContent">
+    <Navbar
+      @toggleMenu="toggleMenu"
+      @closeMenu="isMenuOpen = false"
+      :isMenuOpen="isMenuOpen"
+      class="z-50"
+    />
     <NavMenu :isMenuOpen="isMenuOpen" @closeMenu="isMenuOpen = false" />
     <main class="flex-grow z-0">
       <slot />

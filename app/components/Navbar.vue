@@ -4,6 +4,7 @@
   >
     <div class="pb-1 overflow-hidden">
       <NuxtLink
+        @click="emit('closeMenu')"
         to="/"
         class="text-2xl md:text-4xl font-bold text-orange-500 transition-transform duration-500 ease-out block"
         :class="{
@@ -72,5 +73,5 @@ watch(
 );
 
 const props = defineProps({ isMenuOpen: Boolean });
-const emit = defineEmits(["toggleMenu"]);
+const emit = defineEmits(["toggleMenu", "closeMenu"]);
 </script>
