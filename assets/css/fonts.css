@@ -1,18 +1,19 @@
 @font-face {
-  font-family: "HostGrotesk";
+  font-family: "Host Grotesk";
   src: url("../fonts/HostGrotesk-VariableFont_wght.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "RetroByte";
-  src: url("../fonts/Game Paused DEMO.otf") format("truetype");
+  font-family: "Space Grotesk";
+  src: url("/fonts/SpaceGrotesk-VariableFont_wght.ttf")
+    format("truetype-variations");
   font-weight: 100 900;
   font-style: normal;
 }
 
 body {
-  font-family: "RetroByte", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   background-image: url("https://transparenttextures.com/patterns/otis-redding.png");
 }

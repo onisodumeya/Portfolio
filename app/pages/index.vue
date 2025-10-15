@@ -1,6 +1,7 @@
 <template>
-  <div class="px-5 md:px-10 overflow-y-hidden">
+  <div class="flex flex-col gap-10 overflow-y-hidden">
     <HeroSection />
     <AboutSection />
+    <Projects />
   </div>
 </template>

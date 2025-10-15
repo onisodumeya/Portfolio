@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="fixed top-0 flex flex-row w-full items-center justify-between py-2.5 md:py-5 px-5 md:px-10 bg-white/0 backdrop-blur-md"
+    class="fixed top-0 flex flex-row w-full items-center bg-none justify-between py-2.5 md:py-5 px-5 md:px-10"
     :class="{ 'backdrop-blur-none': isMenuOpen }"
   >
     <div class="pb-1 overflow-hidden">
@@ -20,7 +20,7 @@
     <div class="overflow-hidden">
       <button
         @click="emit('toggleMenu')"
-        class="relative group w-12 md:w-16 h-12 md:h-16 z-20 flex items-center justify-center rounded-full transition-all duration-500 ease-in-out"
+        class="relative group w-12 md:w-16 h-12 md:h-16 z-20 flex items-center justify-center rounded-full transition-all duration-500 ease-in-out bg-gray-100/40 backdrop-blur-sm"
         :class="{
           'translate-y-full opacity-0': !transitionStore.mounted,
           'translate-y-0 opacity-100': transitionStore.mounted,

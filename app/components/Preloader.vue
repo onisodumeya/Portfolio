@@ -2,39 +2,19 @@
   <div
     v-if="showPreloader"
     ref="container"
-    class="fixed inset-0 flex items-center justify-center bg-gray-100 z-50"
+    class="fixed inset-0 flex items-center justify-center bg-gray-900 z-50"
   >
-    <!-- Progress Bar -->
-    <div
-      ref="mainBar"
-      class="w-4/5 h-1.5 bg-gray-700 overflow-hidden z-20 relative"
+    <!-- Percentage Counter -->
+    <h2
+      ref="counter"
+      class="text-4xl md:text-6xl font-bold text-orange-500 font-mono"
     >
-      <div ref="bar" class="h-1.5 bg-orange-500 w-0"></div>
-    </div>
-    <div
-      ref="preloader"
-      class="preloader rounded-md flex flex-col items-center justify-center overflow-hidden"
-    >
-      <!-- Loading Text -->
-      <div
-        ref="name"
-        class="overflow-hidden py-2 h-auto absolute z-30"
-        :class="{ hidden: short }"
-      >
-        <h1
-          class="loading-text text-2xl md:text-4xl whitespace-nowrap font-bold"
-        >
-          Hello There 👋
-        </h1>
-      </div>
-
-      <!-- CRT Overlay -->
-      <div class="crt-bg absolute inset-0 pointer-events-none z-10"></div>
-    </div>
+      0%
+    </h2>
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted } from "vue";
 import gsap from "gsap";
 import "../../assets/css/fonts.css";
@@ -51,105 +31,26 @@ const props = defineProps({
 });
 
 const container = ref(null);
-const mainBar = ref(null);
-const bar = ref(null);
-const name = ref(null);
-
-const preloader = ref(null);
+const counter = ref(null);
 
 onMounted(() => {
-  // Flicker effect
-  gsap.to(".loading-text", {
-    opacity: 0.9,
-    repeat: -1,
-    yoyo: true,
-    duration: 0.01,
-    ease: "steps(2)",
-  });
+  const counterObj = { value: 0 };
 
-  // Fake scanline sweep
-  gsap.to(".crt-bg", {
-    backgroundPosition: "0 100%",
-    duration: 2,
-    repeat: -1,
-    ease: "none",
-  });
-});
-
-onMounted(() => {
   const tl = gsap.timeline();
 
-  if (props.short) {
-    // 🔹 Short version for route changes
-    tl.fromTo(
-      bar.value,
-      { width: "0%" },
-      { width: "100%", duration: 1.5, ease: "linear" }
-    );
-
-    tl.to(
-      mainBar.value,
-      {
-        width: "0%",
-        duration: 0.5,
-        ease: "linear",
-      },
-      "+=0.2"
-    );
-
-    tl.to(
-      container.value,
-      { opacity: 0, duration: 0.3, ease: "linear" },
-      "+=0.2"
-    );
-  } else {
-    // 🔸 Full version for first load
-    tl.fromTo(
-      bar.value,
-      { width: "0%" },
-      { width: "100%", duration: 3, ease: "linear" }
-    );
-
-    tl.to(
-      mainBar.value,
-      {
-        width: "0%",
-        duration: 0.5,
-        ease: "linear",
-      },
-      "+=0.2"
-    );
-
-    tl.fromTo(
-      name.value,
-      { height: 0 },
-      {
-        borderRight: "2px solid #121212",
-        height: "auto",
-        duration: 0.2,
-        ease: "linear",
-      },
-      "+=0.3"
-    );
-
-    tl.fromTo(
-      name.value,
-      { width: 0 },
-      {
-        paddingRight: "5px",
-        width: "auto",
-        duration: 0.5,
-        ease: "linear",
-      },
-      "+=0.5"
-    );
-
-    tl.to(
-      container.value,
-      { opacity: 0, duration: 0.5, ease: "linear" },
-      "+=1.5"
-    );
-  }
+  tl.to(counterObj, {
+    value: 100,
+    duration: 2,
+    ease: "circ.out",
+    onUpdate: () => {
+      counter.value.textContent = `${Math.round(counterObj.value)}%`;
+    },
+  }).to(container.value, {
+    y: "-120%",
+    duration: 0.5,
+    ease: "circ.inOut",
+    onComplete: () => (container.value.style.display = "none"),
+  });
 });
 </script>
 
@@ -161,10 +62,6 @@ onMounted(() => {
   justify-content: center;
   flex-direction: column;
   overflow: hidden;
-}
-
-.loading-text {
-  font-family: "RetroByte", sans-serif;
 }
 
 .crt-bg {
