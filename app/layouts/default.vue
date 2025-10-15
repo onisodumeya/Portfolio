@@ -52,7 +52,7 @@ watch(
       showPreloader.value = false;
       showContent.value = true;
       isRouteChange.value = false;
-    }, 5000);
+    }, 2500);
   }
 );
 
