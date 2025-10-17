@@ -8,6 +8,7 @@
   </div>
 </template>
 <script setup>
+import "../assets/css/cursor.css";
 useHead({
   title: "Onisodumeya",
 });

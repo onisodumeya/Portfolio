@@ -1,0 +1,15 @@
+body {
+  cursor: url("../cursor/cursor-arrow.svg") 10 15, auto;
+}
+
+button {
+  cursor: url("../cursor/cursor-pointing.svg") 10 15, auto;
+}
+
+a {
+  cursor: url("../cursor/cursor-pointing.svg") 10 15, auto;
+}
+
+.project-card {
+  cursor: url("../cursor/cursor-pointing.svg") 10 15, auto;
+}

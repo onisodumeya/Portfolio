@@ -2,18 +2,28 @@
   <div
     @mouseenter="showDetails"
     @mouseleave="hideDetails"
-    :class="`flex flex-col justify-between h-full tracking-wider bg-gray-700 hover:bg-gray-600 hover:-translate-y-1 w-full bg-cover bg-no-repeat bg-center rounded-xl p-3 lg:p-5 cursor-pointer transition-all duration-300 ease-in-out relative overflow-hidden group`"
+    :class="`group project-card flex flex-col gap-5 justify-between h-full tracking-wider bg-gray-700 hover:bg-gray-800 hover:-translate-y-1 w-full bg-cover bg-no-repeat bg-center rounded-xl p-3 lg:p-5 transition-all duration-300 ease-in-out relative overflow-hidden group`"
   >
-    <p class="text-2xl w-fit text-white font-bold">{{ projectName }}</p>
+    <p class="text-3xl w-fit text-white font-bold">{{ projectName }}</p>
     <div>
       <div class="flex flex-col gap-5">
-        <p class="text-white text-sm">
-          {{ description }}
-        </p>
+        <div
+          class="w-full bg-white h-32 md:h-40 rounded-lg lg:rounded-xl place-content-center place-items-center"
+          :style="`background: url(${previewImg});
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;`"
+        >
+          <div
+            class="bg-gray-700/80 py-1 group-hover:px-5 rounded-full w-0 group-hover:w-auto place-items-center place-content-center transition-all duration-300 overflow-hidden"
+          >
+            <p class="text-white text-center text-nowrap">{{ promptText }}</p>
+          </div>
+        </div>
         <ul class="flex flex-wrap gap-3">
           <li
             v-for="tool in tools"
-            class="text-sm font-bold px-5 py-1 bg-white rounded-full"
+            class="text-xs font-bold px-5 py-1 bg-white rounded-full"
           >
             {{ tool }}
           </li>
@@ -34,6 +44,13 @@ defineProps({
   },
   tools: {
     type: [],
+  },
+  promptText: {
+    type: String,
+    default: "visit",
+  },
+  previewImg: {
+    type: String,
   },
 });
 </script>

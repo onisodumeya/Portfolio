@@ -8,7 +8,7 @@
   <div v-else-if="showContent">
     <div
       ref="cursor"
-      class="fixed w-6 h-6 rounded-full bg-white/40 bg-opacity-20 border border-white backdrop-blur-sm pointer-events-none z-[9999]"
+      class="hidden fixed w-6 h-6 rounded-full bg-white/40 bg-opacity-20 border border-white backdrop-blur-sm pointer-events-none z-[9999]"
     ></div>
     <Navbar
       @toggleMenu="toggleMenu"
@@ -79,8 +79,6 @@ function toggleMenu() {
 const cursor = ref(null);
 
 onMounted(() => {
-  const hoverTargets = document.querySelectorAll("a, button");
-
   window.addEventListener("mousemove", (e) => {
     gsap.to(cursor.value, {
       x: e.clientX - 12, // subtract half of width to center
