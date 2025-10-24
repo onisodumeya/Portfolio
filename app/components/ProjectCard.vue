@@ -8,18 +8,25 @@
     <div>
       <div class="flex flex-col gap-5">
         <div
-          class="w-full bg-white h-32 md:h-40 rounded-lg lg:rounded-xl place-content-center place-items-center"
-          :style="`background: url(${previewImg});
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;`"
+          class="rounded-lg lg:rounded-xl overflow-hidden transition-all duration-300"
         >
           <div
-            class="bg-gray-700/80 py-1 group-hover:px-5 rounded-full w-0 group-hover:w-auto place-items-center place-content-center transition-all duration-300 overflow-hidden"
+            class="w-full bg-white h-32 md:h-40 place-content-center place-items-center"
+            :style="`background: url(${previewImg});
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;`"
           >
-            <p class="text-white text-center text-nowrap">{{ promptText }}</p>
+            <div
+              class="bg-gray-700/80 py-1 px-4 rounded-full place-items-center place-content-center transition-all duration-300 overflow-hidden translate-y-[350%] group-hover:translate-y-0"
+            >
+              <p class="text-white text-center text-nowrap text-xs md:text-sm">
+                {{ promptText }}
+              </p>
+            </div>
           </div>
         </div>
+
         <ul class="flex flex-wrap gap-3">
           <li
             v-for="tool in tools"

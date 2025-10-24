@@ -1,7 +1,7 @@
 <template>
   <section ref="section" class="px-5 md:px-10">
     <div
-      class="w-full md:h-auto flex flex-col gap-5 p-5 md:py-10 md:px-10 bg-black rounded-xl relative overflow-hidden"
+      class="w-full md:h-auto flex flex-col gap-5 md:gap-10 p-5 md:py-10 md:px-10 bg-black rounded-xl relative overflow-hidden"
     >
       <h2
         ref="sectionTitle"
@@ -11,21 +11,21 @@
       </h2>
       <div
         ref="gridContainer"
-        class="min-h-[70vh] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-center justify-center h-full w-full z-10"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-center justify-center h-auto w-full z-10"
       >
         <a
-          :href="project.link"
-          target="_blank"
+          :href="project?.link === '#' ? null : project?.link"
+          :target="project?.link === '#' ? '' : '_blank'"
           v-for="(project, index) in projects"
           :key="index"
           ref="cards"
           class="w-auto h-auto"
         >
           <ProjectCard
-            :projectName="project.projectName"
-            :promptText="project.projectDetails.prompt"
-            :tools="project.projectDetails.tools"
-            :previewImg="project.preview"
+            :projectName="project?.projectName"
+            :promptText="project?.projectDetails?.prompt"
+            :tools="project?.projectDetails?.tools"
+            :previewImg="project?.preview"
           />
         </a>
       </div>
@@ -100,7 +100,7 @@ const projects = ref([
     },
     preview:
       "https://res.cloudinary.com/dw3bvhihp/image/upload/v1760677086/download_djadvu.png",
-    link: "localhost:3000",
+    link: "#",
   },
   {
     projectName: "Owosh",

@@ -4,7 +4,7 @@
     :style="`background: url(${light})`"
     style="background-size: 80%; background-repeat: no-repeat"
   ></div>
-  <section class="h-auto flex flex-col items-center pt-20 md:pt-20 relative">
+  <section class="h-auto flex flex-col items-center pt-20 md:pt-40 relative">
     <div
       class="rounded-3xl md:w-4/5 py-14 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
     >

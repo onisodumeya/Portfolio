@@ -18,7 +18,7 @@ defineProps<{ to: string; label: string }>();
       {{ label }}
     </span>
     <span
-      class="text-3xl md:text-4xl lg:text-5xl pb-1 md:pb-2 lg:pb-3 w-fit font-light block absolute top-full left-0 transform transition-transform ease-in-out duration-500 hover:animate-pulse group-hover:-translate-y-full text-orange-300"
+      class="text-3xl md:text-4xl lg:text-5xl pb-1 md:pb-2 lg:pb-3 w-fit font-light block absolute top-full left-0 transform transition-transform ease-in-out duration-500 animate-pulse group-hover:-translate-y-full text-orange-300"
     >
       {{ label }}
     </span>
