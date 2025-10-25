@@ -4,7 +4,7 @@
     :style="`background: url(${light})`"
     style="background-size: 80%; background-repeat: no-repeat"
   ></div>
-  <section class="h-auto flex flex-col items-center pt-20 md:pt-40 relative">
+  <section class="h-auto flex flex-col items-center pt-20 md:pt-28 relative">
     <div
       class="rounded-3xl md:w-4/5 py-14 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
     >
@@ -17,7 +17,7 @@
             '': transitionStore.mounted,
           }"
         >
-          Creative Problem Solver / Designer
+          Creative Problem Solver
         </p>
       </div>
       <div class="flex flex-col gap-1 text-gray-700">
@@ -72,13 +72,13 @@
       <div class="flex flex-col md:flex-row pt-2 pr-2 overflow-hidden">
         <div
           ref="btn"
-          class="transition-all duration-500 ease-out w-auto h-auto"
+          class="flex transition-all duration-500 ease-out"
           :class="{
             'translate-y-[110%]': !transitionStore.mounted,
             '': transitionStore.mounted,
           }"
         >
-          <PriBtn text="Let's Talk" />
+          <PriBtn text="Let's Talk" link="/contact" />
         </div>
       </div>
     </div>

@@ -3,5 +3,6 @@
     <HeroSection />
     <AboutSection />
     <Projects />
+    <CallToAction />
   </div>
 </template>

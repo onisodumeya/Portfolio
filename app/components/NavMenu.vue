@@ -12,47 +12,11 @@
       class="h-full w-full md:w-2/5 flex items-center justify-center bg-black/90 backdrop-blur-3xl transition-all duration-500 ease-in-out"
     >
       <div class="flex flex-col gap-10">
-        <div class="relative overflow-hidden w-fit">
+        <div v-for="link in links" class="relative overflow-hidden w-fit">
           <NavLink
             @click.stop="closeMenu"
-            to="/"
-            label="Home"
-            class="transition-all duration-500"
-            :class="{
-              '-bottom-40': !showMenuLinks,
-              '-bottom-0': showMenuLinks,
-            }"
-          />
-        </div>
-        <div class="relative overflow-hidden w-fit">
-          <NavLink
-            @click.stop="closeMenu"
-            to="/about"
-            label="About Me"
-            class="transition-all duration-500"
-            :class="{
-              '-bottom-40': !showMenuLinks,
-              '-bottom-0': showMenuLinks,
-            }"
-          />
-        </div>
-        <div class="relative overflow-hidden w-fit">
-          <NavLink
-            @click.stop="closeMenu"
-            to="/projects"
-            label="Projects"
-            class="transition-all duration-500"
-            :class="{
-              '-bottom-40': !showMenuLinks,
-              '-bottom-0': showMenuLinks,
-            }"
-          />
-        </div>
-        <div class="relative overflow-hidden w-fit">
-          <NavLink
-            @click.stop="closeMenu"
-            to="/contact"
-            label="Contact Me"
+            :to="link.link"
+            :label="link.title"
             class="transition-all duration-500"
             :class="{
               '-bottom-40': !showMenuLinks,
@@ -97,4 +61,19 @@ watch(
     }
   }
 );
+
+const links = [
+  {
+    link: "/",
+    title: "Home",
+  },
+  {
+    link: "/about",
+    title: "About Me",
+  },
+  {
+    link: "/contact",
+    title: "Contact Me",
+  },
+];
 </script>

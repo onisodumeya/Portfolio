@@ -5,7 +5,7 @@
     :short="isRouteChange"
   />
 
-  <div v-else-if="showContent">
+  <div v-else-if="showContent" class="place-items-center">
     <div
       ref="cursor"
       class="hidden fixed w-6 h-6 rounded-full bg-white/40 bg-opacity-20 border border-white backdrop-blur-sm pointer-events-none z-[9999]"
@@ -21,7 +21,7 @@
       @closeMenu="isMenuOpen = false"
       class="z-40"
     />
-    <main class="flex-grow z-0">
+    <main class="flex-grow z-0 max-w-[1800px] place-items-center">
       <slot />
     </main>
     <Footer />
