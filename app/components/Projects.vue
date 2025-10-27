@@ -1,12 +1,9 @@
 <template>
-  <section ref="section" class="px-5 md:px-10">
+  <section ref="section" class="px-5 md:px-10 z-20">
     <div
-      class="w-full md:h-auto flex flex-col gap-5 md:gap-10 p-5 md:py-10 md:px-10 bg-black rounded-lg relative overflow-hidden"
+      class="w-full md:h-auto flex flex-col gap-5 md:gap-10 p-5 md:py-10 md:px-10 bg-gray-300 relative overflow-hidden"
     >
-      <h2
-        ref="sectionTitle"
-        class="text-6xl md:text-8xl lg:text-9xl font-bold text-white/80"
-      >
+      <h2 ref="sectionTitle" class="text-7xl md:text-8xl lg:text-9xl font-bold">
         WORK
       </h2>
       <div

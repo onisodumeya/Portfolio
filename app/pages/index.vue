@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-10 overflow-y-hidden">
+  <div class="flex flex-col gap-10 overflow-y-hidden overflow-x-hidden">
     <HeroSection />
     <AboutSection />
     <Projects />

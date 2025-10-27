@@ -1,12 +1,14 @@
 <template>
   <div
-    class="absolute z-0 h-full w-full top-0 left-0"
+    class="absolute z-10 h-full w-full top-0 left-0"
     :style="`background: url(${light})`"
-    style="background-size: 80%; background-repeat: no-repeat"
+    style="background-size: 80%; background-repeat: no-repeat; opacity: 0.8"
   ></div>
-  <section class="h-auto flex flex-col items-center pt-20 md:pt-28 relative">
+  <section
+    class="h-auto flex flex-col items-center pt-20 md:pt-32 px-5 relative"
+  >
     <div
-      class="rounded-3xl md:w-4/5 py-14 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
+      class="md:w-4/5 py-14 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
     >
       <div class="place-items-center overflow-hidden">
         <p
@@ -24,7 +26,7 @@
         <div class="place-items-center overflow-hidden">
           <h1
             ref="first"
-            class=":w-full text-center text-4xl md:text-5xl lg:text-7xl pb-2 font-bold overflow-hidden transition-all duration-500 ease-out"
+            class=":w-full text-center text-5xl md:text-5xl lg:text-7xl pb-2 font-bold overflow-hidden transition-all duration-500 ease-out"
             :class="{
               'translate-y-[110%]': !transitionStore.mounted,
               '': transitionStore.mounted,
@@ -47,7 +49,7 @@
         <div class="place-items-center overflow-hidden">
           <h1
             ref="second"
-            class="w-full text-center text-4xl md:text-5xl lg:text-7xl font-bold overflow-hidden transition-all duration-500 ease-out"
+            class="w-full text-center text-2xl md:text-3xl lg:text-4xl font-base overflow-hidden transition-all duration-500 ease-out"
             :class="{
               'translate-y-[110%]': !transitionStore.mounted,
               '': transitionStore.mounted,
@@ -72,7 +74,7 @@
       <div class="flex flex-col md:flex-row pt-2 pr-2 overflow-hidden">
         <div
           ref="btn"
-          class="flex transition-all duration-500 ease-out"
+          class="flex transition-all duration-500 ease-out z-20"
           :class="{
             'translate-y-[110%]': !transitionStore.mounted,
             '': transitionStore.mounted,

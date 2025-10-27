@@ -67,13 +67,13 @@ const links = [
     link: "/",
     title: "Home",
   },
-  {
-    link: "/about",
-    title: "About Me",
-  },
-  {
-    link: "/contact",
-    title: "Contact Me",
-  },
+  // {
+  //   link: "/about",
+  //   title: "About Me",
+  // },
+  // {
+  //   link: "/contact",
+  //   title: "Contact Me",
+  // },
 ];
 </script>

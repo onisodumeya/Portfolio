@@ -1,11 +1,11 @@
 <template>
   <section
     ref="section"
-    class="relative flex flex-col gap-3 justify-between pb-10 px-5 md:px-10"
+    class="relative flex flex-col gap-3 justify-between pb-10 px-5 md:px-10 z-20"
   >
     <h2
       ref="title"
-      class="text-5xl md:text-8xl lg:text-9xl stroke-black text-transparent justify-self-start"
+      class="text-7xl md:text-8xl lg:text-9xl stroke-black text-transparent justify-self-start"
       style="-webkit-text-stroke: 1px #1b1b1b"
     >
       Hey There!

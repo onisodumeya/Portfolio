@@ -43,23 +43,24 @@
           }"
         /> -->
         <div
-          class="h-[2px] md:h-1 bg-orange-500 w-3/5 rounded full z-10 transition-all duration-300"
+          class="h-[2.5px] md:h-1 bg-orange-500 w-3/5 z-10 transition-all duration-300"
           :class="{
-            'translate-y-2 md:translate-y-3': isMenuOpen,
+            'translate-y-[8.5px] md:translate-y-3': isMenuOpen,
             '-rotate-45': isMenuOpen,
           }"
         ></div>
         <div
-          class="h-[2px] md:h-1 bg-orange-500 w-2/5 rounded full -translate-x-2 z-10 group-hover:translate-x-0 transition-all duration-300"
+          class="h-[2.5px] md:h-1 bg-orange-500 w-2/5 z-10 group-hover:translate-x-0 transition-all duration-300"
           :class="{
             'translate-x-0': isMenuOpen,
             'rotate-45 opacity-0': isMenuOpen,
+            '-translate-x-2': !isMenuOpen,
           }"
         ></div>
         <div
-          class="h-[2px] md:h-1 bg-orange-500 w-3/5 rounded full z-10 transition-all duration-300"
+          class="h-[2.5px] md:h-1 bg-orange-500 w-3/5 z-10 transition-all duration-300"
           :class="{
-            '-translate-y-2 md:-translate-y-3': isMenuOpen,
+            '-translate-y-[8.5px] md:-translate-y-3': isMenuOpen,
             'rotate-45': isMenuOpen,
           }"
         ></div>

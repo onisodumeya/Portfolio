@@ -1,6 +1,6 @@
 <template>
   <section
-    class="h-screen flex flex-col md:flex-row place-content-center p-5 gap-20"
+    class="h-screen flex flex-col md:flex-row place-content-center p-5 gap-20 z-20"
   >
     <div class="md:p-5 md:w-2/5 md:h-full md:place-content-center">
       <div ref="CTA" class="flex flex-col gap-3">
@@ -22,23 +22,12 @@
     >
       <div ref="socials" class="flex flex-wrap gap-5">
         <a
-          href=""
-          class="h-fit w-fit px-5 py-2 border border-[#121212] rounded-md hover:bg-[#121212] hover:shadow-md hover:shadow-black/50 hover:-translate-y-1 hover:text-white transition-all duration-300"
+          v-for="social in socialLinks"
+          :href="social.link"
+          target="_blank"
+          class="text-sm md:text-base flex gap-3 h-fit w-fit px-5 py-2 border border-[#121212] hover:bg-[#121212] hover:shadow-md hover:shadow-black/50 hover:-translate-y-1 hover:text-white transition-all duration-300"
         >
-          LinkedIn
-        </a>
-        <a
-          href=""
-          ref="x"
-          class="h-fit w-fit px-5 py-2 border border-[#121212] rounded-md hover:bg-[#121212] hover:shadow-md hover:shadow-black/50 hover:-translate-y-1 hover:text-white transition-all duration-300"
-        >
-          X formally Twitter
-        </a>
-        <a
-          href=""
-          class="h-fit w-fit px-5 py-2 border border-[#121212] rounded-md hover:bg-[#121212] hover:shadow-md hover:shadow-black/50 hover:-translate-y-1 hover:text-white transition-all duration-300"
-        >
-          WhatsApp
+          {{ social.platform }}
         </a>
       </div>
     </div>
@@ -49,6 +38,8 @@
 import { ref, onMounted } from "vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap-trial/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const CTA = ref(null);
 const socials = ref(null);
@@ -77,4 +68,23 @@ onMounted(() => {
     },
   });
 });
+
+const socialLinks = [
+  {
+    platform: "LinkedIn",
+    link: "https://LinkedIn.com/in/onisodumeyamazi",
+  },
+  {
+    platform: "X",
+    link: "https://x.com/theonimazi",
+  },
+  {
+    platform: "WhatsApp",
+    link: "wa.me/2348037819521",
+  },
+  {
+    platform: "GitHub",
+    link: "https://github.com/onisodumeya",
+  },
+];
 </script>
