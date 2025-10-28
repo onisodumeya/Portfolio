@@ -14,14 +14,14 @@
         <div class="flex flex-col gap-5">
           <div class="overflow-hidden transition-all duration-300">
             <div
-              class="w-full bg-white border-2 border-black h-32 md:h-40 place-content-center place-items-center"
+              class="w-full bg-white border-2 border-black h-32 md:h-40 place-content-center place-items-center flex"
               :style="`background: url(${previewImg});
             background-size: cover;
             background-position: top;
             background-repeat: no-repeat;`"
             >
               <div
-                class="bg-black/50 backdrop-blur-sm py-1 px-4 w-fit rounded-full place-items-center place-content-center transition-all duration-300 overflow-hidden lg:translate-y-[350%] group-hover:translate-y-0"
+                class="bg-black/50 backdrop-blur-sm py-1 px-4 w-fit self-center rounded-full place-items-center place-content-center transition-all duration-300 overflow-hidden lg:translate-y-[350%] group-hover:translate-y-0"
               >
                 <p
                   class="text-white text-center text-nowrap text-xs md:text-sm"
