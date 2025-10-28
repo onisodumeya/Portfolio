@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute z-10 h-screen w-full top-0 left-0"
+    class="absolute z-10 h-full w-full top-0 left-0"
     :style="`background: url(${light})`"
     style="background-size: 80%; background-repeat: no-repeat; opacity: 0.8"
   ></div>
