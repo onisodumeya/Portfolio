@@ -21,7 +21,7 @@
             background-repeat: no-repeat;`"
             >
               <div
-                class="bg-black/50 backdrop-blur-sm py-1 px-4 rounded-full place-items-center place-content-center transition-all duration-300 overflow-hidden lg:translate-y-[350%] group-hover:translate-y-0"
+                class="bg-black/50 backdrop-blur-sm py-1 px-4 w-fit rounded-full place-items-center place-content-center transition-all duration-300 overflow-hidden lg:translate-y-[350%] group-hover:translate-y-0"
               >
                 <p
                   class="text-white text-center text-nowrap text-xs md:text-sm"
