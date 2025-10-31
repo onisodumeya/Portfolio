@@ -1,8 +1,8 @@
 <template>
   <div
-    class="absolute z-10 h-full w-full top-0 left-0"
+    class="absolute h-full w-full top-0 left-0"
     :style="`background: url(${light})`"
-    style="background-size: 80%; background-repeat: no-repeat; opacity: 0.8"
+    style="background-size: 80%; background-repeat: no-repeat; opacity: 0.5"
   ></div>
   <section
     class="h-auto flex flex-col items-center pt-20 md:pt-32 px-5 relative"
@@ -26,61 +26,45 @@
         <div class="place-items-center overflow-hidden">
           <h1
             ref="first"
-            class=":w-full text-center text-5xl md:text-5xl lg:text-7xl pb-2 font-bold overflow-hidden transition-all duration-500 ease-out"
+            class=":w-full text-center text-4xl md:text-5xl lg:text-7xl tracking-widest pb-2 overflow-hidden transition-all duration-500 ease-out"
             :class="{
               'translate-y-[110%]': !transitionStore.mounted,
               '': transitionStore.mounted,
             }"
           >
-            Hi, I'm
             <span
-              style="
-                background-color: #ea580c;
-                background-clip: text;
-                -webkit-background-clip: text;
-                overflow: hidden;
-                color: transparent;
-                text-shadow: 3px 5px 1px rgba(209, 213, 219, 0.5);
-              "
-              >Onisodumeya</span
+              style="-webkit-text-stroke: 1px #1b1b1b"
+              class="text-transparent"
             >
+              Hi, I'm
+            </span>
+            Onisodumeya
           </h1>
         </div>
         <div class="place-items-center overflow-hidden">
           <h1
             ref="second"
-            class="w-full text-center text-2xl md:text-3xl lg:text-4xl font-base overflow-hidden transition-all duration-500 ease-out"
+            class="w-full text-center tracking-widest text-sm md:text-lg overflow-hidden transition-all duration-500 ease-out"
             :class="{
               'translate-y-[110%]': !transitionStore.mounted,
               '': transitionStore.mounted,
             }"
           >
-            and I build
-            <span
-              style="
-                background-color: #ea580c;
-                background-clip: text;
-                -webkit-background-clip: text;
-                overflow: hidden;
-                color: transparent;
-                text-shadow: 3px 5px 1px rgba(209, 213, 219, 0.5);
-              "
-              >cool</span
-            >
-            websites
+            I build modern, responsive websites that help your business earn
+            attention and trust online.
           </h1>
         </div>
       </div>
-      <div class="flex flex-col md:flex-row pt-2 pr-2 overflow-hidden">
+      <div class="flex flex-col md:flex-row overflow-hidden p-4">
         <div
           ref="btn"
           class="flex transition-all duration-500 ease-out z-20"
           :class="{
-            'translate-y-[110%]': !transitionStore.mounted,
+            'translate-y-[140%]': !transitionStore.mounted,
             '': transitionStore.mounted,
           }"
         >
-          <PriBtn text="Let's Talk" link="/contact" />
+          <PriBtn text="Let's Talk" @btnClicked="scrollTo" />
         </div>
       </div>
     </div>
@@ -90,17 +74,14 @@
 <script setup lang="ts">
 import { usePageTransitionStore } from "~/stores/pageTransition";
 import { watch, onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
-// import noise from "../assets/images/noise.png";
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
 import light from "../../assets/images/light-ray.png";
+// import { defineEmits } from "vue";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const transitionStore = usePageTransitionStore();
-const route = useRoute();
-const changedRoute = ref(false);
 
 const first = ref(null);
 const second = ref(null);
@@ -163,13 +144,11 @@ onMounted(() => {
   );
 });
 
-// watch(
-//   () => route.fullPath,
-//   () => {
-//     changedRoute.value = true;
-//     transitionStore.triggerTransition();
-//   }
-// );
+const emit = defineEmits(["scroll"]);
+
+function scrollTo() {
+  emit("scroll");
+}
 
 const props = defineProps({
   mounted: Boolean,

@@ -1,7 +1,7 @@
 <template>
-  <section ref="section" class="px-5 md:px-10 z-20">
+  <section ref="section" class="px-5 md:px-10 z-20 overflow-hidden">
     <div
-      class="w-full md:h-auto flex flex-col gap-5 md:gap-10 p-5 md:py-10 md:px-10 bg-gray-300 relative overflow-hidden"
+      class="w-full md:h-auto flex flex-col gap-5 md:gap-10 bg-gray-300 relative"
     >
       <h2 ref="sectionTitle" class="text-7xl md:text-8xl lg:text-9xl font-bold">
         WORK
@@ -26,10 +26,6 @@
           />
         </a>
       </div>
-      <div
-        class="absolute z-0 h-full w-full top-0 left-0 bg-cover bg-no-repeat opacity-15"
-        :style="`background: url(${noise})`"
-      ></div>
     </div>
   </section>
 </template>
@@ -110,10 +106,10 @@ const projects = ref([
     link: "https://owosh-frontend.vercel.app/",
   },
   {
-    projectName: "WalletBits",
+    projectName: "Owosh",
     projectDetails: {
       prompt: "Visit",
-      tools: ["React", "Tailwindcss", "JavaScript"],
+      tools: ["Nuxt js", "JavaScript", "Tailwindcss"],
     },
     preview:
       "https://res.cloudinary.com/dw3bvhihp/image/upload/v1760678533/download_pis8tv.png",

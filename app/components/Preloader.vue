@@ -2,13 +2,10 @@
   <div
     v-if="showPreloader"
     ref="container"
-    class="fixed inset-0 flex items-center justify-center bg-gray-900 z-50"
+    class="fixed inset-0 flex items-center justify-center bg-[#121212] z-50"
   >
     <!-- Percentage Counter -->
-    <h2
-      ref="counter"
-      class="text-4xl md:text-6xl font-bold text-orange-500 font-mono"
-    >
+    <h2 ref="counter" class="text-2xl md:text-3xl text-orange-500 font-mono">
       0%
     </h2>
   </div>

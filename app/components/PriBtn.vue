@@ -1,11 +1,11 @@
 <template>
   <NuxtLink
     :to="link"
-    class="text-white w-fit h-fit bg-black/60 backdrop-blur-lg text-lg relative group border-2 border-black/60 hover:border-2 hover:border-black/60 transition-colors duration-300 ease-out"
+    class="text-white w-fit h-fit text-lg relative group transition-colors duration-300 ease-out"
   >
     <div
       @click.stop="buttonAction"
-      :class="`relative bg-orange-500 border-b-4 border-b-orange-700 border-t-2 border-t-white/50 px-6 py-2 text-nowrap ${border} transition-all duration-300 ease-in-out overflow-hidden group`"
+      :class="`relative bg-orange-500 border-b-[3px] border-b-orange-700 border-l-[3px] border-l-orange-700 border-t-[3px] border-t-white/50 border-r-[3px] border-r-white/50 px-6 py-2 text-nowrap ${border} transition-all duration-300 ease-in-out overflow-hidden text-center group group-hover:shadow-lg group-hover:shadow-orange-700/50`"
     >
       <div
         class="absolute w-10 h-full bg-orange-100/50 blur-md top-0 z-10 transform -translate-x-[200%] group-hover:translate-x-[300%] transition-all duration-300 ease-linear"
@@ -14,7 +14,7 @@
     </div>
   </NuxtLink>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from "vue";
 import gsap from "gsap";
 
@@ -25,8 +25,11 @@ defineProps({
 
 const border = ref("group-hover:-translate-y-1");
 
+const emit = defineEmits(["btnClicked"]);
+
 function buttonAction() {
   border.value = "group-hover:-translate-y-0";
+  emit("btnClicked");
 
   setTimeout(() => {
     border.value = "group-hover:-translate-y-1";

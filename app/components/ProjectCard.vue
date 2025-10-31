@@ -1,8 +1,6 @@
 <template>
   <div class="bg-[#121212] h-auto w-auto">
     <div
-      @mouseenter="showDetails"
-      @mouseleave="hideDetails"
       :class="`border-2 border-black -translate-y-1 -translate-x-1 group project-card flex flex-col gap-5 justify-between h-full tracking-wider bg-gray-500 hover:bg-gray-700 hover:-translate-y-2 w-full bg-cover bg-no-repeat bg-center p-3 lg:p-5 transition-all duration-300 ease-in-out relative overflow-hidden group`"
     >
       <div
@@ -34,8 +32,8 @@
 
           <ul class="flex flex-wrap gap-3">
             <li
-              v-for="tool in tools"
-              class="text-xs font-medium px-5 py-1 bg-gray-300"
+              v-for="(tool, index) in tools"
+              :class="`text-xs font-medium px-5 py-1 ${bgColor[index]}`"
             >
               {{ tool }}
             </li>
@@ -46,7 +44,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineProps({
   projectName: {
     type: String,
@@ -66,4 +64,6 @@ defineProps({
     type: String,
   },
 });
+
+const bgColor = ["bg-green-50", "bg-purple-50", "bg-blue-50", "bg-red-50"];
 </script>
