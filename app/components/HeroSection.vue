@@ -4,9 +4,7 @@
     :style="`background: url(${light})`"
     style="background-size: 80%; background-repeat: no-repeat; opacity: 0.5"
   ></div>
-  <section
-    class="h-auto flex flex-col items-center pt-20 md:pt-32 px-5 relative"
-  >
+  <section class="h-screen flex items-center px-5 relative justify-center">
     <div
       class="md:w-4/5 py-14 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
     >
@@ -50,8 +48,8 @@
               '': transitionStore.mounted,
             }"
           >
-            I build modern, responsive websites that help your business earn
-            attention and trust online.
+            I create online experiences that earn attention, trust and
+            customers.
           </h1>
         </div>
       </div>

@@ -1,5 +1,8 @@
 <template>
-  <section ref="section" class="px-5 md:px-10 z-20 overflow-hidden">
+  <section
+    ref="section"
+    class="px-5 md:px-10 pt-20 md:pt-32 z-20 overflow-hidden"
+  >
     <div
       class="w-full md:h-auto flex flex-col gap-5 md:gap-10 bg-gray-300 relative"
     >

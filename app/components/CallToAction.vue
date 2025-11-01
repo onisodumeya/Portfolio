@@ -1,7 +1,7 @@
 <template>
   <section
     ref="ctaSection"
-    class="h-screen flex flex-col md:flex-row place-content-center p-5 gap-20 z-20"
+    class="h-auto min-h-screen flex flex-col md:flex-row place-content-center p-5 py-10 md:py-20 gap-20 z-20"
   >
     <div class="md:p-5 md:w-2/5 md:h-full md:place-content-center">
       <div ref="CTA" class="flex flex-col gap-5">
@@ -11,33 +11,40 @@
         <div class="flex">
           <div class="flex flex-col w-full items-center gap-10">
             <div class="flex gap-5 w-full">
-              <label for="" class="w-full">
+              <label for="" class="w-full rounded-none">
                 <input
                   type="text"
-                  class="w-full py-2 border-b-2 border-b-[#121212] outline-none bg-transparent text-sm"
+                  class="w-full py-2 border-b-2 border-b-[#121212] rounded-none outline-none bg-transparent text-sm"
                   placeholder="Your name"
                 />
               </label>
-              <label for="" class="w-full">
+              <label for="" class="w-full rounded-none">
                 <input
                   type="email"
-                  class="w-full py-2 border-b-2 border-b-[#121212] outline-none bg-transparent text-sm"
+                  class="w-full py-2 border-b-2 border-b-[#121212] rounded-none outline-none bg-transparent text-sm"
                   placeholder="Your email"
                 />
               </label>
             </div>
-            <label for="" class="w-full">
+            <label for="" class="w-full rounded-none">
               <input
                 type="text"
-                class="w-full py-2 border-b-2 border-b-[#121212] outline-none bg-transparent text-sm"
+                class="w-full py-2 border-b-2 border-b-[#121212] rounded-none outline-none bg-transparent text-sm"
                 placeholder="Your brilliant idea"
               />
             </label>
-            <label for="" class="w-full">
+            <label for="" class="w-full rounded-none">
               <textarea
                 type="text"
-                class="w-full py-2 border-b-2 border-b-[#121212] outline-none bg-transparent text-sm"
-                placeholder="I've got this totally awesome idea!!!"
+                class="w-full py-2 border-b-2 border-b-[#121212] rounded-none outline-none bg-transparent text-sm"
+                placeholder="Description"
+              />
+            </label>
+            <label for="" class="w-full rounded-none">
+              <textarea
+                type="text"
+                class="w-full py-2 border-b-2 border-b-[#121212] rounded-none outline-none bg-transparent text-sm"
+                placeholder="Budget (optional)"
               />
             </label>
             <PriBtn class="self-start" text="Submit" />

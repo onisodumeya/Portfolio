@@ -1,13 +1,12 @@
 <template>
-  <section ref="section" class="p-5 md:p-10 place-items-center">
-    <div
-      class="relative h-auto flex flex-col gap-3 justify-between py-10 px-5 md:px-10 z-20"
-    >
+  <section ref="section" class="px-5 md:px-10 place-items-center">
+    <div class="relative h-auto flex flex-col gap-3 justify-between z-20">
       <h2
         ref="title"
-        class="text-4xl md:text-4xl lg:text-6xl stroke-gray-300 text-orange-500 justify-self-start"
+        class="text-5xl md:text-6xl stroke-gray-300 text-orange-500 font-bold justify-self-start"
+        style="-webkit-text-stroke: 1px #121212"
       >
-        Hey There!
+        Hello!
       </h2>
       <div class="flex flex-col gap-5 items-center tracking-wider w-full">
         <p
@@ -16,7 +15,7 @@
         >
           I’m Onisodumeya Mazi, a frontend developer from Port Harcourt,
           Nigeria. I help brands and creators build websites that look great,
-          feel smooth, and leave a lasting impression.
+          feel smooth, and turn user attention into conversions.
         </p>
         <div
           class="flex flex-col md:flex-row items-start gap-5 w-full justify-between"
@@ -32,17 +31,15 @@
               <span class="text-orange-500 font-bold"
                 >Frontend Web Development</span
               >
-              - I bring designs to life with clean, efficient, and responsive
-              code, blending performance with personality. From smooth
-              transitions to seamless interactivity, I build interfaces that
-              don’t just work but feel right.
+              - Keeping SEO practices and mobile responsiveness at the
+              forefront, I build websites that boost user engagement and improve
+              conversion rates, leading to an overall business growth.
             </p>
             <p ref="ui" class="w-full leading-loose">
               <span class="text-orange-500 font-bold">UI Design</span> - I
-              design interfaces that speak clearly and look great, balancing
-              minimal aesthetics with meaningful user flow. Every pixel, color,
-              and motion has a purpose: to make users enjoy the experience as
-              much as they understand it.
+              believe good design should do more than just look good, it should
+              also guide users to take action and drive ral results for your
+              business.
             </p>
           </div>
         </div>
@@ -85,40 +82,20 @@ const web = ref(null);
 const ui = ref(null);
 
 onMounted(() => {
-  const split = new SplitText(title.value, { type: "words,chars" });
-  const chars = split.chars;
+  // const split = new SplitText(title.value, { type: "words,chars" });
+  // const chars = split.chars;
 
-  gsap.from(chars, {
-    y: 50,
+  gsap.from(title.value, {
+    x: "-100%",
     opacity: 0,
     ease: "circ.out",
     duration: 1,
-    stagger: 0.1,
     scrollTrigger: {
       trigger: title.value,
       start: "top 100%",
       toggleActions: "play none none reverse",
     },
   });
-  gsap.fromTo(
-    title.value,
-    {
-      y: 100,
-      opacity: 0,
-    },
-    {
-      y: 0,
-      opacity: 1,
-      delay: 0.3,
-      ease: "",
-      duration: 1,
-      scrollTrigger: {
-        trigger: title.value,
-        start: "top 100%",
-        toggleActions: "play none none reverse",
-      },
-    }
-  );
   gsap.fromTo(
     whoIAm.value,
     {
