@@ -1,4 +1,10 @@
 <template>
+  <img
+    :src="light"
+    alt="Light effect hero background"
+    class="absolute h-full w-full top-0 left-0"
+    fetchpriority="high"
+  />
   <section class="h-screen flex items-center px-5 relative justify-center">
     <div
       class="md:w-4/5 py-14 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
@@ -71,7 +77,7 @@ import { usePageTransitionStore } from "~/stores/pageTransition";
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
-import light from "../../assets/images/light-ray.webp";
+import light from "../../assets/images/light-ray.avif";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -89,7 +95,7 @@ onMounted(() => {
     elements,
     {
       y: 100,
-      opacity: 0,
+      opacity: 0.01,
     },
     {
       y: 0,

@@ -65,7 +65,7 @@ const ui = ref(null);
 onMounted(() => {
   gsap.from(title.value, {
     x: "-100%",
-    opacity: 0,
+    opacity: 0.01,
     ease: "circ.out",
     duration: 1,
     scrollTrigger: {
@@ -78,7 +78,7 @@ onMounted(() => {
     whoIAm.value,
     {
       y: 100,
-      opacity: 0,
+      opacity: 0.01,
     },
     {
       y: 0,
@@ -97,7 +97,7 @@ onMounted(() => {
     whatIDo.value,
     {
       y: 100,
-      opacity: 0,
+      opacity: 0.01,
     },
     {
       y: 0,
@@ -116,7 +116,7 @@ onMounted(() => {
     web.value,
     {
       y: 100,
-      opacity: 0,
+      opacity: 0.01,
     },
     {
       y: 0,
@@ -135,7 +135,7 @@ onMounted(() => {
     ui.value,
     {
       y: 100,
-      opacity: 0,
+      opacity: 0.01,
     },
     {
       y: 0,

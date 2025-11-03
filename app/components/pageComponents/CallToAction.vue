@@ -117,7 +117,7 @@ onMounted(() => {
   });
   gsap.from(CTA.value, {
     x: -100,
-    opacity: 0,
+    opacity: 0.01,
     duration: 1,
     ease: "circ.out",
     scrollTrigger: {
