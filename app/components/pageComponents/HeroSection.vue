@@ -62,7 +62,9 @@
             '': transitionStore.mounted,
           }"
         >
-          <PriBtn text="Let's Talk" @btnClicked="scrollTo" />
+          <PriBtn @btnClicked="scrollTo">
+            <p>Let's Talk</p>
+          </PriBtn>
         </div>
       </div>
     </div>

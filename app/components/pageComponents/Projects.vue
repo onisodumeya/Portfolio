@@ -3,11 +3,13 @@
     ref="section"
     class="px-5 md:px-10 pt-20 md:pt-32 z-20 overflow-hidden"
   >
-    <div
-      class="w-full md:h-auto flex flex-col gap-5 md:gap-10 bg-gray-300 relative"
-    >
-      <h2 ref="sectionTitle" class="text-7xl md:text-8xl lg:text-9xl font-bold">
-        WORK
+    <div class="w-full md:h-auto flex flex-col gap-5 md:gap-10 relative">
+      <h2
+        ref="sectionTitle"
+        class="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-500"
+        style="-webkit-text-stroke: 0.8px #121212"
+      >
+        Some projects I've worked on
       </h2>
       <div
         ref="gridContainer"
@@ -48,18 +50,6 @@ const cards = ref([]);
 const gridContainer = ref(null);
 
 onMounted(() => {
-  gsap.from(section.value, {
-    y: 100,
-    opacity: 0,
-    duration: 1,
-    ease: "circ.out",
-    scrollTrigger: {
-      trigger: section.value,
-      start: "top 90%",
-      toggleActions: "play none none reverse",
-    },
-  });
-
   gsap.from(sectionTitle.value, {
     x: "-100%",
     opacity: 0,
@@ -76,11 +66,11 @@ onMounted(() => {
     gsap.from(card, {
       y: 80,
       opacity: 0,
-      duration: 0.8,
+      duration: 1,
       ease: "circ.out",
       scrollTrigger: {
         trigger: card,
-        start: "top 100%",
+        start: "top 80%",
         toggleActions: "play none none reverse",
       },
     });
@@ -109,7 +99,7 @@ const projects = ref([
     link: "https://owosh-frontend.vercel.app/",
   },
   {
-    projectName: "Owosh",
+    projectName: "WalletBits",
     projectDetails: {
       prompt: "Visit",
       tools: ["Nuxt js", "JavaScript", "Tailwindcss"],

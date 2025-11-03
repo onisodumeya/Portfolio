@@ -7,6 +7,10 @@
   </div>
 </template>
 <script setup>
+import HeroSection from "~/components/pageComponents/HeroSection.vue";
+import AboutSection from "~/components/pageComponents/AboutSection.vue";
+import Projects from "~/components/pageComponents/Projects.vue";
+import CallToAction from "~/components/pageComponents/CallToAction.vue";
 import { ref, nextTick } from "vue";
 
 const cta = ref(null);

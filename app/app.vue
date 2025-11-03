@@ -9,7 +9,52 @@
 </template>
 <script setup>
 import "../assets/css/cursor.css";
+import { ref, onMounted } from "vue";
+
+// Meta & Title
 useHead({
-  title: "Onisodumeya",
+  title: "Onisodumeya | Frontend Developer",
+  meta: [
+    {
+      name: "description",
+      content:
+        "I build mordern, responsive websites for businesses that converts visitors to customers.",
+    },
+    { property: "og:title", content: "Onisodumeya's Portfolio" },
+    { property: "og:description", content: "Frontend web developer" },
+    { property: "og:image", content: "/preview.jpg" },
+    { property: "og:type", content: "website" },
+  ],
+  script: [
+    {
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Onisodumeya Mazi",
+        jobTitle: "Frontend Developer & UI/UX Designer",
+        url: "https://onisodumeya.vercel.app",
+        description: "I build fast, conversion-driven business websites.",
+        knowsAbout: ["Frontend Development", "UI Design", "SEO"],
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "NG",
+        },
+      }),
+    },
+  ],
+});
+
+onMounted(() => {
+  const originalTitle = document.title;
+  console.log(originalTitle);
+
+  window.addEventListener("blur", () => {
+    document.title = "Come back! 👀";
+  });
+
+  window.addEventListener("focus", () => {
+    document.title = originalTitle;
+  });
 });
 </script>

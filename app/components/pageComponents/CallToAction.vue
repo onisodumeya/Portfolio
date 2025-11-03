@@ -1,7 +1,7 @@
 <template>
   <section
     ref="ctaSection"
-    class="h-auto min-h-screen flex flex-col md:flex-row place-content-center p-5 py-10 md:py-20 gap-20 z-20"
+    class="h-auto min-h-screen flex flex-col md:flex-row place-content-center items-center p-5 py-10 md:py-20 gap-20 z-20"
   >
     <div class="md:p-5 md:w-2/5 md:h-full md:place-content-center">
       <div ref="CTA" class="flex flex-col gap-5">
@@ -9,11 +9,12 @@
           Looking for someone to bring your idea to life?
         </h2>
         <div class="flex">
-          <div class="flex flex-col w-full items-center gap-10">
+          <form ref="formRef" class="flex flex-col w-full items-center gap-10">
             <div class="flex gap-5 w-full">
               <label for="" class="w-full rounded-none">
                 <input
                   type="text"
+                  name="name"
                   class="w-full py-2 border-b-2 border-b-[#121212] rounded-none outline-none bg-transparent text-sm"
                   placeholder="Your name"
                 />
@@ -21,6 +22,7 @@
               <label for="" class="w-full rounded-none">
                 <input
                   type="email"
+                  name="email"
                   class="w-full py-2 border-b-2 border-b-[#121212] rounded-none outline-none bg-transparent text-sm"
                   placeholder="Your email"
                 />
@@ -29,6 +31,7 @@
             <label for="" class="w-full rounded-none">
               <input
                 type="text"
+                name="title"
                 class="w-full py-2 border-b-2 border-b-[#121212] rounded-none outline-none bg-transparent text-sm"
                 placeholder="Your brilliant idea"
               />
@@ -36,19 +39,28 @@
             <label for="" class="w-full rounded-none">
               <textarea
                 type="text"
+                name="description"
                 class="w-full py-2 border-b-2 border-b-[#121212] rounded-none outline-none bg-transparent text-sm"
                 placeholder="Description"
               />
             </label>
             <label for="" class="w-full rounded-none">
-              <textarea
+              <input
                 type="text"
+                name="budget"
                 class="w-full py-2 border-b-2 border-b-[#121212] rounded-none outline-none bg-transparent text-sm"
                 placeholder="Budget (optional)"
               />
             </label>
-            <PriBtn class="self-start" text="Submit" />
-          </div>
+            <PriBtn class="self-start" @btnClicked="sendEmail">
+              <template #default>
+                <div v-if="loading" class="spinner"></div>
+                <span v-else-if="sent">Message Sent ✅</span>
+                <span v-else-if="errorSent">Error Sending Message ❌</span>
+                <span v-else>Submit</span>
+              </template>
+            </PriBtn>
+          </form>
         </div>
       </div>
     </div>
@@ -70,10 +82,12 @@
   </section>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted } from "vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap-trial/ScrollTrigger";
+import emailjs from "@emailjs/browser";
+import { useRuntimeConfig } from "#app";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -92,7 +106,7 @@ onMounted(() => {
     ease: "circ.out",
     scrollTrigger: {
       trigger: socials.value,
-      start: "top 100%",
+      start: "top 80%",
       toggleActions: "play none none reverse",
     },
   });
@@ -102,8 +116,8 @@ onMounted(() => {
     duration: 1,
     ease: "circ.out",
     scrollTrigger: {
-      trigger: socials.value,
-      start: "top 100%",
+      trigger: CTA.value,
+      start: "top 70%",
       toggleActions: "play none none reverse",
     },
   });
@@ -126,4 +140,56 @@ const socialLinks = [
     icon: "mdi:whatsapp",
   },
 ];
+
+const config = useRuntimeConfig();
+
+const formRef = ref(null);
+const loading = ref(false);
+const sent = ref(false);
+const errorSent = ref(false);
+
+const sendEmail = async () => {
+  loading.value = true;
+  sent.value = false;
+  errorSent.value = false;
+
+  try {
+    await emailjs.sendForm(
+      config.public.emailServiceId,
+      config.public.emailTemplateId,
+      formRef.value,
+      config.public.emailPublicKey
+    );
+
+    formRef.value.reset();
+    sent.value = true;
+  } catch (error) {
+    console.log(error);
+    errorSent.value = true;
+    sent.value = false;
+  } finally {
+    loading.value = false;
+    setTimeout(() => {
+      sent.value = false;
+      errorSent.value = false;
+    }, 2000);
+  }
+};
 </script>
+
+<style scoped>
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid transparent;
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>

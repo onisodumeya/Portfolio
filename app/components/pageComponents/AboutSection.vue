@@ -3,8 +3,8 @@
     <div class="relative h-auto flex flex-col gap-3 justify-between z-20">
       <h2
         ref="title"
-        class="text-5xl md:text-6xl stroke-gray-300 text-orange-500 font-bold justify-self-start"
-        style="-webkit-text-stroke: 1px #121212"
+        class="text-5xl md:text-6xl stroke-gray-300 tracking-wider text-orange-500 font-bold justify-self-start"
+        style="-webkit-text-stroke: 0.8px #121212"
       >
         Hello!
       </h2>
