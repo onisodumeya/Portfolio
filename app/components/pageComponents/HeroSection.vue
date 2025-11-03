@@ -1,10 +1,4 @@
 <template>
-  <img
-    :src="light"
-    alt="Light effect hero background"
-    class="absolute h-full w-full top-0 left-0"
-    fetchpriority="high"
-  />
   <section class="h-screen flex items-center px-5 relative justify-center">
     <div
       class="md:w-4/5 py-14 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
