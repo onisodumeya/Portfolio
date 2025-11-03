@@ -3,7 +3,7 @@
     <div class="relative h-auto flex flex-col gap-3 justify-between z-20">
       <h2
         ref="title"
-        class="text-5xl md:text-6xl stroke-gray-300 tracking-wider text-orange-500 font-bold justify-self-start"
+        class="text-5xl md:text-6xl stroke-gray-300 tracking-wider text-orange-400 font-bold justify-self-start"
         style="-webkit-text-stroke: 0.8px #121212"
       >
         Hello!
@@ -28,7 +28,7 @@
               ref="web"
               class="w-full leading-loose border-b-2 border-b-[#777777] border-dashed pb-5"
             >
-              <span class="text-orange-500 font-bold"
+              <span class="text-orange-400 font-bold"
                 >Frontend Web Development</span
               >
               - Keeping SEO practices and mobile responsiveness at the
@@ -36,7 +36,7 @@
               conversion rates, leading to an overall business growth.
             </p>
             <p ref="ui" class="w-full leading-loose">
-              <span class="text-orange-500 font-bold">UI Design</span> - I
+              <span class="text-orange-400 font-bold">UI Design</span> - I
               believe good design should do more than just look good, it should
               also guide users to take action and drive ral results for your
               business.
@@ -45,24 +45,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="relative overflow-hidden py-5 w-4/5">
-      <div class="tech-carousel w-full">
-        <div class="flex gap-10">
-          <img
-            v-for="(icon, i) in icons"
-            :key="i"
-            :src="icon"
-            class="w-8 lg:w-10 h-auto"
-          />
-        </div>
-      </div>
-      <div
-        class="absolute top-0 left-0 w-[10%] h-full bg-gradient-to-r from-gray-300 via-gray-300/90 to-transparent z-10"
-      ></div>
-      <div
-        class="absolute top-0 right-0 w-[10%] h-full bg-gradient-to-l from-gray-300 via-gray-300/90 to-transparent z-10"
-      ></div>
-    </div> -->
   </section>
 </template>
 
@@ -70,7 +52,6 @@
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
 import { onMounted, ref } from "vue";
-import { Icon } from "@iconify/vue";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -82,9 +63,6 @@ const web = ref(null);
 const ui = ref(null);
 
 onMounted(() => {
-  // const split = new SplitText(title.value, { type: "words,chars" });
-  // const chars = split.chars;
-
   gsap.from(title.value, {
     x: "-100%",
     opacity: 0,
@@ -173,49 +151,4 @@ onMounted(() => {
     }
   );
 });
-
-// Carousel
-
-const icons = [
-  "https://skillicons.dev/icons?i=html",
-  "https://skillicons.dev/icons?i=css",
-  "https://skillicons.dev/icons?i=js",
-  "https://skillicons.dev/icons?i=react",
-  "https://skillicons.dev/icons?i=tailwind",
-  "https://skillicons.dev/icons?i=nodejs",
-  "https://skillicons.dev/icons?i=figma",
-  "https://skillicons.dev/icons?i=git",
-  "https://skillicons.dev/icons?i=github",
-  "https://skillicons.dev/icons?i=vite",
-  "https://skillicons.dev/icons?i=vue",
-  "https://skillicons.dev/icons?i=nuxt",
-  "https://skillicons.dev/icons?i=next",
-  "https://skillicons.dev/icons?i=html",
-  "https://skillicons.dev/icons?i=css",
-  "https://skillicons.dev/icons?i=js",
-  "https://skillicons.dev/icons?i=react",
-  "https://skillicons.dev/icons?i=tailwind",
-  "https://skillicons.dev/icons?i=nodejs",
-  "https://skillicons.dev/icons?i=figma",
-  "https://skillicons.dev/icons?i=git",
-  "https://skillicons.dev/icons?i=github",
-  "https://skillicons.dev/icons?i=vite",
-  "https://skillicons.dev/icons?i=vue",
-  "https://skillicons.dev/icons?i=nuxt",
-  "https://skillicons.dev/icons?i=next",
-];
-
-// onMounted(() => {
-//   const carousel = document.querySelector(".tech-carousel");
-
-//   // Duplicate icons to make infinite loop illusion
-//   const totalWidth = carousel.scrollWidth / 2;
-
-//   gsap.to(carousel, {
-//     x: -totalWidth,
-//     duration: 30, // speed of scroll
-//     ease: "none",
-//     repeat: -1,
-//   });
-// });
 </script>

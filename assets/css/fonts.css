@@ -1,19 +1,15 @@
 @font-face {
-  font-family: "Host Grotesk";
-  src: url("../fonts/HostGrotesk-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "Space Grotesk";
-  src: url("/fonts/SpaceGrotesk-VariableFont_wght.ttf")
-    format("truetype-variations");
+  src: url("/fonts/SpaceGrotesk-VariableFont_wght-webfont.woff2")
+    format("woff2");
   font-weight: 100 900;
   font-style: normal;
+  font-display: swap;
+  ascent-override: 95%;
+  descent-override: 20%;
+  line-gap-override: 0%;
 }
 
 body {
   font-family: "Space Grotesk", sans-serif;
-  /* background-image: url("https://transparenttextures.com/patterns/otis-redding.png"); */
 }

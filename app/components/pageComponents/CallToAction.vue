@@ -52,7 +52,11 @@
                 placeholder="Budget (optional)"
               />
             </label>
-            <PriBtn class="self-start" @btnClicked="sendEmail">
+            <PriBtn
+              class="self-start"
+              @btnClicked="sendEmail"
+              aria="Send message"
+            >
               <template #default>
                 <div v-if="loading" class="spinner"></div>
                 <span v-else-if="sent">Message Sent ✅</span>
@@ -71,10 +75,11 @@
         <a
           v-for="social in socialLinks"
           :href="social.link"
+          :aria-label="social.aria"
           target="_blank"
           class="text-sm md:text-base flex items-center gap-3 h-fit w-fit px-5 py-2 border border-[#121212] hover:bg-[#121212] hover:shadow-md hover:shadow-black/50 hover:-translate-y-1 hover:text-white transition-all duration-300"
         >
-          <Icon :icon="social.icon" class="text-xl" />
+          <Icon :icon="social.icon" class="text-base" />
           <p>{{ social.platform }}</p>
         </a>
       </div>
@@ -127,17 +132,26 @@ const socialLinks = [
   {
     platform: "LinkedIn",
     link: "https://LinkedIn.com/in/onisodumeyamazi",
-    icon: "mdi:linkedin",
+    icon: "simple-icons:linkedin",
+    aria: "Coonect with me on Linkedin profile",
   },
   {
     platform: "GitHub",
     link: "https://github.com/onisodumeya",
-    icon: "mdi:github",
+    icon: "simple-icons:github",
+    aria: "Visit my GitHub profile",
   },
   {
     platform: "WhatsApp",
     link: "wa.me/2348037819521",
-    icon: "mdi:whatsapp",
+    icon: "simple-icons:whatsapp",
+    aria: "Message me on Whatsapp",
+  },
+  {
+    platform: "X",
+    link: "https://x.com/onisodumeyamazi",
+    icon: "simple-icons:x",
+    aria: "Follow me on X",
   },
 ];
 

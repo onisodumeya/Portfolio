@@ -13,6 +13,20 @@ import { ref, onMounted } from "vue";
 
 // Meta & Title
 useHead({
+  link: [
+    {
+      rel: "preload",
+      href: "/_nuxt/default.css",
+      as: "style",
+      onload: "this.onload=null;this.rel='stylesheet'",
+    },
+    {
+      rel: "preload",
+      href: "/_nuxt/entry.css",
+      as: "style",
+      onload: "this.onload=null;this.rel='stylesheet'",
+    },
+  ],
   title: "Onisodumeya | Frontend Developer",
   meta: [
     {

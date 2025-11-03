@@ -13,31 +13,53 @@
           'translate-y-0 opacity-100': transitionStore.mounted,
         }"
       >
-        👨🏽‍💻
+        <img
+          src="/favicon.ico"
+          alt="Logo"
+          aria-label="Onisodumeya's logo"
+          width="40px"
+        />
       </NuxtLink>
     </div>
 
     <div class="overflow-hidden">
       <div
-        class="flex items-center gap-5 text-2xl p-2 transition-transform duration-500 ease-out"
+        class="flex items-center gap-5 text-xl p-2 transition-transform duration-500 ease-out"
         :class="{
           'translate-y-full opacity-0': !transitionStore.mounted,
           'translate-y-0 opacity-100': transitionStore.mounted,
         }"
       >
-        <a target="_blank" href="https://LinkedIn.com/in/onisodumeyamazi"
+        <a
+          target="_blank"
+          aria-label="Coonect with me on Linkedin profile"
+          href="https://LinkedIn.com/in/onisodumeyamazi"
           ><Icon
-            icon="mdi:linkedin"
+            icon="simple-icons:linkedin"
             class="text-black hover:-translate-y-1 transition-all duration-300"
         /></a>
-        <a target="_blank" href="https://github.com/onisodumeya"
+        <a
+          target="_blank"
+          aria-label="Visit my GitHub profile"
+          href="https://github.com/onisodumeya"
           ><Icon
-            icon="mdi:github"
+            icon="simple-icons:github"
             class="text-black hover:-translate-y-1 transition-all duration-300"
         /></a>
-        <a target="_blank" href="https://wa.me/2348037819521"
+        <a
+          target="_blank"
+          aria-label="Message me on Whatsapp"
+          href="https://wa.me/2348037819521"
           ><Icon
-            icon="mdi:whatsapp"
+            icon="simple-icons:whatsapp"
+            class="text-black hover:-translate-y-1 transition-all duration-300"
+        /></a>
+        <a
+          target="_blank"
+          aria-label="Message me on Whatsapp"
+          href="https://x.com/onisodumeyamazi"
+          ><Icon
+            icon="simple-icons:x"
             class="text-black hover:-translate-y-1 transition-all duration-300"
         /></a>
       </div>

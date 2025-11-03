@@ -2,6 +2,7 @@
   <div class="bg-[#121212] h-auto w-auto">
     <div
       :class="`border-2 border-black -translate-y-1 -translate-x-1 group project-card flex flex-col gap-5 justify-between h-full tracking-wider bg-gray-500 hover:bg-gray-700 hover:-translate-y-2 w-full bg-cover bg-no-repeat bg-center p-3 lg:p-5 transition-all duration-300 ease-in-out relative overflow-hidden group`"
+      :aria-label="`View project: ${projectName}`"
     >
       <div
         class="bg-gray-300 py-1 px-3 border-r-2 border-r-black border-b-2 border-b-black"
@@ -12,14 +13,18 @@
         <div class="flex flex-col gap-5">
           <div class="overflow-hidden transition-all duration-300">
             <div
-              class="w-full bg-white border-2 border-black h-32 md:h-40 place-content-center place-items-center flex"
-              :style="`background: url(${previewImg});
-            background-size: cover;
-            background-position: top;
-            background-repeat: no-repeat;`"
+              class="relative w-full bg-white border-2 border-black h-32 md:h-40 place-content-center place-items-center flex overflow-hidden"
             >
+              <img
+                :src="previewImg"
+                :alt="`${projectName} thumbnail`"
+                :aria-label="`${projectName} thumbnail`"
+                class="absolute inset-0 w-full h-full object-cover"
+                decoding="async"
+                loading="lazy"
+              />
               <div
-                class="bg-black/50 backdrop-blur-sm py-1 px-4 w-fit self-center rounded-full place-items-center place-content-center transition-all duration-300 overflow-hidden lg:translate-y-[350%] group-hover:translate-y-0"
+                class="absolute bg-black/50 backdrop-blur-sm py-1 px-4 w-fit self-center rounded-full place-items-center place-content-center transition-all duration-300 overflow-hidden lg:translate-y-[350%] group-hover:translate-y-0"
               >
                 <p
                   class="text-white text-center text-nowrap text-xs md:text-sm"

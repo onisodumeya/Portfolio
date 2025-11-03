@@ -6,7 +6,7 @@
     <div class="w-full md:h-auto flex flex-col gap-5 md:gap-10 relative">
       <h2
         ref="sectionTitle"
-        class="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-500"
+        class="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-400"
         style="-webkit-text-stroke: 0.8px #121212"
       >
         Some projects I've worked on
@@ -27,7 +27,9 @@
             :projectName="project?.projectName"
             :promptText="project?.projectDetails?.prompt"
             :tools="project?.projectDetails?.tools"
-            :previewImg="project?.preview"
+            :previewImg="
+              project?.preview ? project?.preview : project?.fallback
+            "
           />
         </a>
       </div>
@@ -39,7 +41,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { ref, onMounted } from "vue";
-import noise from "../../assets/images/6mcf62RlDfRfU61Yg5vb2pefpi4.avif";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,7 +86,9 @@ const projects = ref([
       tools: ["Nuxt js", "TypeScript", "Tailwindcss"],
     },
     preview:
-      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1760677086/download_djadvu.png",
+      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762189262/onisodumeya-avif_wpv00y.avif",
+    fallback:
+      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762187202/Onisodumeya_e1bupe.webp",
     link: "#",
   },
   {
@@ -95,7 +98,9 @@ const projects = ref([
       tools: ["Nuxt js", "TypeScript", "Tailwindcss"],
     },
     preview:
-      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1760678272/download_vlyglu.png",
+      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762189263/owosh-avif_lhqnif.avif",
+    fallback:
+      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762187203/owosh_hjh6hr.webp",
     link: "https://owosh-frontend.vercel.app/",
   },
   {
@@ -105,7 +110,9 @@ const projects = ref([
       tools: ["Nuxt js", "JavaScript", "Tailwindcss"],
     },
     preview:
-      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1760678533/download_pis8tv.png",
+      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762189263/walletbits-avif_y6ppwa.avif",
+    fallback:
+      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762187203/walletbits_tlt5ka.webp",
     link: "https://walletbits-app.vercel.app/",
   },
 ]);

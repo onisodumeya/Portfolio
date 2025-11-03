@@ -1,9 +1,10 @@
 <template>
-  <div
+  <img
+    :src="light"
+    alt="Light effect hero background"
     class="absolute h-full w-full top-0 left-0"
-    :style="`background: url(${light})`"
-    style="background-size: 80%; background-repeat: no-repeat; opacity: 0.5"
-  ></div>
+    fetchpriority="high"
+  />
   <section class="h-screen flex items-center px-5 relative justify-center">
     <div
       class="md:w-4/5 py-14 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
@@ -62,7 +63,7 @@
             '': transitionStore.mounted,
           }"
         >
-          <PriBtn @btnClicked="scrollTo">
+          <PriBtn @btnClicked="scrollTo" aria="Contact me">
             <p>Let's Talk</p>
           </PriBtn>
         </div>
@@ -73,11 +74,10 @@
 
 <script setup lang="ts">
 import { usePageTransitionStore } from "~/stores/pageTransition";
-import { watch, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
-import light from "../../assets/images/light-ray.png";
-// import { defineEmits } from "vue";
+import light from "../../assets/images/light-ray.webp";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -89,9 +89,10 @@ const third = ref(null);
 const btn = ref(null);
 
 onMounted(() => {
-  // transitionStore.triggerTransition();
+  const elements = [first.value, second.value, third.value, btn.value];
+
   gsap.fromTo(
-    first.value,
+    elements,
     {
       y: 100,
       opacity: 0,
@@ -101,45 +102,8 @@ onMounted(() => {
       opacity: 1,
       ease: "power2.out",
       delay: 0.4,
-    }
-  );
-  gsap.fromTo(
-    second.value,
-    {
-      y: 100,
-      opacity: 0,
-    },
-    {
-      y: 0,
-      opacity: 1,
-      ease: "power2.out",
-      delay: 0.4,
-    }
-  );
-  gsap.fromTo(
-    third.value,
-    {
-      y: 100,
-      opacity: 0,
-    },
-    {
-      y: 0,
-      opacity: 1,
-      ease: "power2.out",
-      delay: 0.4,
-    }
-  );
-  gsap.fromTo(
-    btn.value,
-    {
-      y: 100,
-      opacity: 0,
-    },
-    {
-      y: 0,
-      opacity: 1,
-      ease: "power2.out",
-      delay: 0.4,
+      duration: 0.8,
+      force3D: true,
     }
   );
 });
