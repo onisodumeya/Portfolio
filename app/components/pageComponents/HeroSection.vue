@@ -2,7 +2,7 @@
   <img
     :src="light"
     alt="Light effect hero background"
-    class="absolute h-full w-full top-0 left-0"
+    class="absolute top-0 left-0"
     fetchpriority="high"
   />
   <section class="h-screen flex items-center px-5 relative justify-center">
