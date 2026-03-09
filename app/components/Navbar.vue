@@ -54,14 +54,6 @@
             icon="simple-icons:whatsapp"
             class="text-black hover:-translate-y-1 transition-all duration-300"
         /></a>
-        <a
-          target="_blank"
-          aria-label="Follow me on X"
-          href="https://x.com/onisodumeyamazi"
-          ><Icon
-            icon="simple-icons:x"
-            class="text-black hover:-translate-y-1 transition-all duration-300"
-        /></a>
       </div>
       <!-- <button
         @click="emit('toggleMenu')"
@@ -115,7 +107,7 @@ watch(
   () => route.fullPath,
   () => {
     transitionStore.triggerTransition();
-  }
+  },
 );
 
 const props = defineProps({ isMenuOpen: Boolean });
