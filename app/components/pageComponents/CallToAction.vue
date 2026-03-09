@@ -111,7 +111,7 @@ onMounted(() => {
     ease: "circ.out",
     scrollTrigger: {
       trigger: socials.value,
-      start: "top 80%",
+      start: "top 90%",
       toggleActions: "play none none reverse",
     },
   });
@@ -133,7 +133,7 @@ const socialLinks = [
     platform: "LinkedIn",
     link: "https://LinkedIn.com/in/onisodumeyamazi",
     icon: "simple-icons:linkedin",
-    aria: "Coonect with me on Linkedin profile",
+    aria: "Conect with me on Linkedin profile",
   },
   {
     platform: "GitHub",
@@ -146,12 +146,6 @@ const socialLinks = [
     link: "wa.me/2348037819521",
     icon: "simple-icons:whatsapp",
     aria: "Message me on Whatsapp",
-  },
-  {
-    platform: "X",
-    link: "https://x.com/onisodumeyamazi",
-    icon: "simple-icons:x",
-    aria: "Follow me on X",
   },
 ];
 
@@ -172,7 +166,7 @@ const sendEmail = async () => {
       config.public.emailServiceId,
       config.public.emailTemplateId,
       formRef.value,
-      config.public.emailPublicKey
+      config.public.emailPublicKey,
     );
 
     formRef.value.reset();

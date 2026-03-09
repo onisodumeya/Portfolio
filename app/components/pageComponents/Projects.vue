@@ -80,18 +80,6 @@ onMounted(() => {
 
 const projects = ref([
   {
-    projectName: "Onisodumeya",
-    projectDetails: {
-      prompt: "You're already here",
-      tools: ["Nuxt js", "TypeScript", "Tailwindcss"],
-    },
-    preview:
-      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762189262/onisodumeya-avif_wpv00y.avif",
-    fallback:
-      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762187202/Onisodumeya_e1bupe.webp",
-    link: "#",
-  },
-  {
     projectName: "Owosh",
     projectDetails: {
       prompt: "Visit",
@@ -114,6 +102,18 @@ const projects = ref([
     fallback:
       "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762187203/walletbits_tlt5ka.webp",
     link: "https://walletbits-app.vercel.app/",
+  },
+  {
+    projectName: "E-commerce Dashboard",
+    projectDetails: {
+      prompt: "Visit",
+      tools: ["React js", "Typescript", "Tailwindcss"],
+    },
+    preview:
+      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1773079451/cb921205-96ac-495c-a599-159e551394e3_jmv9sp.png",
+    fallback:
+      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762187203/walletbits_tlt5ka.webp",
+    link: "https://e-commerce-dashboard-lovat.vercel.app/",
   },
 ]);
 </script>

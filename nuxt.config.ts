@@ -19,6 +19,9 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      htmlAttrs: {
+        lang: "en",
+      },
       title: "Onisodumeya | Frontend Developer",
       meta: [
         {

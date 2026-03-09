@@ -56,7 +56,7 @@
         /></a>
         <a
           target="_blank"
-          aria-label="Message me on Whatsapp"
+          aria-label="Follow me on X"
           href="https://x.com/onisodumeyamazi"
           ><Icon
             icon="simple-icons:x"
