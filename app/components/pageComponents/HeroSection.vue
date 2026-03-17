@@ -5,9 +5,11 @@
     class="absolute top-0 left-0"
     fetchpriority="high"
   />
-  <section class="h-screen flex items-center px-5 relative justify-center">
+  <section
+    class="h-screen w-full flex items-center px-5 relative justify-center"
+  >
     <div
-      class="md:w-4/5 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
+      class="md:w-4/5 w-full px-5 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
     >
       <div class="place-items-center overflow-hidden">
         <p

@@ -1,5 +1,5 @@
 <template>
-  <section ref="section" class="px-5 md:px-10 place-items-center">
+  <section ref="section" class="px-5 md:px-10 place-items-center w-full px-5">
     <div class="relative h-auto flex flex-col gap-3 justify-between z-20">
       <h2
         ref="title"
