@@ -29,19 +29,11 @@
               </label>
             </div>
             <label for="" class="w-full rounded-none">
-              <input
-                type="text"
-                name="title"
-                class="w-full py-2 border-b-2 border-b-[#121212] rounded-none outline-none bg-transparent text-sm"
-                placeholder="Your brilliant idea"
-              />
-            </label>
-            <label for="" class="w-full rounded-none">
               <textarea
                 type="text"
                 name="description"
                 class="w-full py-2 border-b-2 border-b-[#121212] rounded-none outline-none bg-transparent text-sm"
-                placeholder="Description"
+                placeholder="Tell me about your project"
               />
             </label>
             <label for="" class="w-full rounded-none">
@@ -68,20 +60,27 @@
         </div>
       </div>
     </div>
-    <div
-      class="relative md:p-5 pb-10 md:w-3/5 md:h-full md:place-content-center md:place-items-end flex flex-col gap-5"
-    >
-      <div ref="socials" class="flex flex-wrap gap-5">
-        <a
-          v-for="social in socialLinks"
-          :href="social.link"
-          :aria-label="social.aria"
-          target="_blank"
-          class="text-sm md:text-base flex items-center gap-3 h-fit w-fit px-5 py-2 border border-[#121212] hover:bg-[#121212] hover:shadow-md hover:shadow-black/50 hover:-translate-y-1 hover:text-white transition-all duration-300"
-        >
-          <Icon :icon="social.icon" class="text-base" />
-          <p>{{ social.platform }}</p>
-        </a>
+    <!-- Email snd socials -->
+    <div ref="socials" class="md:w-3/5 flex flex-col items-end">
+      <div class="flex items-center gap-2 p-5 text-2xl">
+        <p>Email:</p>
+        <p>onisodumeyamazi@gmail.com</p>
+      </div>
+      <div
+        class="relative md:p-5 pb-10 w-full md:h-full md:place-content-center md:place-items-end flex flex-col gap-5"
+      >
+        <div class="flex flex-wrap gap-5">
+          <a
+            v-for="social in socialLinks"
+            :href="social.link"
+            :aria-label="social.aria"
+            target="_blank"
+            class="text-sm md:text-base flex items-center gap-3 h-fit w-fit px-5 py-2 border border-[#121212] hover:bg-[#121212] hover:shadow-md hover:shadow-black/50 hover:-translate-y-1 hover:text-white transition-all duration-300"
+          >
+            <Icon :icon="social.icon" class="text-base" />
+            <p>{{ social.platform }}</p>
+          </a>
+        </div>
       </div>
     </div>
   </section>

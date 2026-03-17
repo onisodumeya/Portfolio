@@ -7,7 +7,7 @@
   />
   <section class="h-screen flex items-center px-5 relative justify-center">
     <div
-      class="md:w-4/5 py-14 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
+      class="md:w-4/5 flex flex-col gap-10 items-center bg-cover bg-no-repeat bg-center"
     >
       <div class="place-items-center overflow-hidden">
         <p
@@ -18,7 +18,7 @@
             '': transitionStore.mounted,
           }"
         >
-          Creative Problem Solver
+          Frontend Developer for Local Businesses
         </p>
       </div>
       <div class="flex flex-col gap-1 text-gray-700">
@@ -31,13 +31,7 @@
               '': transitionStore.mounted,
             }"
           >
-            <span
-              style="-webkit-text-stroke: 1px #1b1b1b"
-              class="text-transparent"
-            >
-              Hi, I'm
-            </span>
-            Onisodumeya
+            Hi, I'm Onisodumeya
           </h1>
         </div>
         <div class="place-items-center overflow-hidden">
@@ -104,7 +98,7 @@ onMounted(() => {
       delay: 0.4,
       duration: 0.8,
       force3D: true,
-    }
+    },
   );
 });
 

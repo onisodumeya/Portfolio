@@ -13,7 +13,7 @@
       </h2>
       <div
         ref="gridContainer"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-center justify-center h-auto w-full z-10"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-start justify-center h-auto w-full z-10"
       >
         <a
           :href="project?.link === '#' ? null : project?.link"
@@ -27,9 +27,8 @@
             :projectName="project?.projectName"
             :promptText="project?.projectDetails?.prompt"
             :tools="project?.projectDetails?.tools"
-            :previewImg="
-              project?.preview ? project?.preview : project?.fallback
-            "
+            :previewImg="project?.preview"
+            :description="project.description"
           />
         </a>
       </div>
@@ -80,40 +79,52 @@ onMounted(() => {
 
 const projects = ref([
   {
-    projectName: "Owosh",
+    projectName: "Shay's Plumbing - Template",
     projectDetails: {
       prompt: "Visit",
-      tools: ["Nuxt js", "TypeScript", "Tailwindcss"],
+      tools: ["Nuxt", "TypeScript", "Tailwindcss"],
     },
     preview:
-      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762189263/owosh-avif_lhqnif.avif",
-    fallback:
-      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762187203/owosh_hjh6hr.webp",
-    link: "https://owosh-frontend.vercel.app/",
-  },
-  {
-    projectName: "WalletBits",
-    projectDetails: {
-      prompt: "Visit",
-      tools: ["Nuxt js", "JavaScript", "Tailwindcss"],
-    },
-    preview:
-      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762189263/walletbits-avif_y6ppwa.avif",
-    fallback:
-      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762187203/walletbits_tlt5ka.webp",
-    link: "https://walletbits-app.vercel.app/",
+      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1773738267/plumbing_website_ntgihe.png",
+    link: "https://plumbing-website-gilt.vercel.app/",
+    description:
+      "A mobile-first website template built for local plumbing businesses. Features a contact form, testimonials, and clear call-to-action buttons — designed to turn visitors into paying customers.",
   },
   {
     projectName: "E-commerce Dashboard",
     projectDetails: {
       prompt: "Visit",
-      tools: ["React js", "Typescript", "Tailwindcss"],
+      tools: ["React", "Typescript", "Tailwindcss"],
     },
     preview:
       "https://res.cloudinary.com/dw3bvhihp/image/upload/v1773079451/cb921205-96ac-495c-a599-159e551394e3_jmv9sp.png",
-    fallback:
-      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762187203/walletbits_tlt5ka.webp",
     link: "https://e-commerce-dashboard-lovat.vercel.app/",
+    description:
+      "Modern business management dashboard built with React & TypeScript. Features sales reports, product management, customer tracking, and dark mode support.",
   },
+  {
+    projectName: "WalletBits",
+    projectDetails: {
+      prompt: "Visit",
+      tools: ["Nuxt", "JavaScript", "Tailwindcss"],
+    },
+    preview:
+      "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762189263/walletbits-avif_y6ppwa.avif",
+    link: "https://walletbits-app.vercel.app/",
+    description:
+      "Frontend codebase for WalletBits — a seamless transactional platform where users can securely sell gift cards and convert cryptocurrency to Naira.",
+  },
+  // {
+  //   projectName: "Owosh",
+  //   projectDetails: {
+  //     prompt: "Visit",
+  //     tools: ["Nuxt", "TypeScript", "Tailwindcss"],
+  //   },
+  //   preview:
+  //     "https://res.cloudinary.com/dw3bvhihp/image/upload/v1762189263/owosh-avif_lhqnif.avif",
+  //   link: "https://owosh-frontend.vercel.app/",
+  //   description:
+  //     "A responsive movie rental and streaming platform where users can browse, rent, and watch movies online, built with modern frontend technologies.",
+  // },
 ]);
 </script>

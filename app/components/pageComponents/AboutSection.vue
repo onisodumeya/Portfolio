@@ -13,9 +13,9 @@
           ref="whoIAm"
           class="w-full border-b-2 border-b-[#777777] border-dashed leading-loose pb-5"
         >
-          I’m Onisodumeya Mazi, a frontend developer from Port Harcourt,
-          Nigeria. I help brands and creators build websites that look great,
-          feel smooth, and turn user attention into conversions.
+          I’m Onisodumeya Mazi, a frontend developer. I help brands and creators
+          build websites that look great, feel smooth, and turn user attention
+          into conversions.
         </p>
         <div
           class="flex flex-col md:flex-row items-start gap-5 w-full justify-between"
@@ -38,7 +38,7 @@
             <p ref="ui" class="w-full leading-loose">
               <span class="text-orange-400 font-bold">UI Design</span> - I
               believe good design should do more than just look good, it should
-              also guide users to take action and drive ral results for your
+              also guide users to take action and drive real results for your
               business.
             </p>
           </div>
@@ -91,7 +91,7 @@ onMounted(() => {
         start: "top 100%",
         toggleActions: "play none none reverse",
       },
-    }
+    },
   );
   gsap.fromTo(
     whatIDo.value,
@@ -110,7 +110,7 @@ onMounted(() => {
         start: "top 100%",
         toggleActions: "play none none reverse",
       },
-    }
+    },
   );
   gsap.fromTo(
     web.value,
@@ -129,7 +129,7 @@ onMounted(() => {
         start: "top 100%",
         toggleActions: "play none none reverse",
       },
-    }
+    },
   );
   gsap.fromTo(
     ui.value,
@@ -148,7 +148,7 @@ onMounted(() => {
         start: "top 100%",
         toggleActions: "play none none reverse",
       },
-    }
+    },
   );
 });
 </script>

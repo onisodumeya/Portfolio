@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     :to="link"
-    class="w-fit h-fit text-lg font-semibold relative group transition-colors duration-300 ease-out"
+    class="w-fit h-fit text-lg font-semibold relative group transition-colors duration-300 ease-out cursor-pointer"
     :aria-label="aria"
   >
     <div
