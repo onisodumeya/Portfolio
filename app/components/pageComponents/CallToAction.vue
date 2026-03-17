@@ -61,7 +61,7 @@
       </div>
     </div>
     <!-- Email snd socials -->
-    <div ref="socials" class="md:w-3/5 flex flex-col items-end md:items-start">
+    <div ref="socials" class="md:w-3/5 flex flex-col items-start md:items-end">
       <div class="flex items-center gap-2 p-5 text-xl">
         <p>Email:</p>
         <p>onisodumeyamazi@gmail.com</p>
