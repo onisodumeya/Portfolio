@@ -57,8 +57,8 @@
         <a
           :href="cv"
           download="Onisodumeya_Mazi_CV.pdf"
-          class="text-sm hover:text-orange-600 transition-colors duration-300"
-          >Download resume</a
+          class="hover:-translate-y-1 transition-all duration-300 text-sm"
+          >Download CV</a
         >
       </div>
     </div>
