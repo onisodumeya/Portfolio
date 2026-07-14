@@ -13,12 +13,7 @@
           'translate-y-0 opacity-100': transitionStore.mounted,
         }"
       >
-        <img
-          src="/favicon.ico"
-          alt="Logo"
-          aria-label="Onisodumeya's logo"
-          width="40px"
-        />
+        <h1 class="text-orange-400">Onisodumeya</h1>
       </NuxtLink>
     </div>
 
