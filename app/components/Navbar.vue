@@ -13,7 +13,7 @@
           'translate-y-0 opacity-100': transitionStore.mounted,
         }"
       >
-        <h1 class="text-orange-400">Onisodumeya</h1>
+        <h2 class="text-orange-400">Onisodumeya</h2>
       </NuxtLink>
     </div>
 
